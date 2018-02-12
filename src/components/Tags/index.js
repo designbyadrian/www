@@ -4,25 +4,17 @@ import Link from 'gatsby-link'
 
 import styles from './tags.module.sass'
 
-const Tags = props => {
-
-  const clickHandler = slug => {
-    console.log("clicked" + slug);
-  }
-
-  return (
-    <div className={styles.tags}>
-      {props.tags.map(tag =>
-        <button className={styles.tag} onClick={() => clickHandler(tag.slug)} key={tag.slug}>{tag.name}</button>
-      )}
-    </div>
-  );
-}
+const Tags = props => (
+  <div className={styles.tags}>
+    {props.tags.map(tag =>
+      <Link className={styles.tag} to={`/tag/${tag.slug}`} key={tag.slug}>{tag.name}</Link>
+    )}
+  </div>
+)
 
 Tags.propTypes = {
   tags: PropTypes.array,
-  size: PropTypes.string,
-  selectedTags: PropTypes.object,
+  size: PropTypes.string
 }
 
 export default Tags

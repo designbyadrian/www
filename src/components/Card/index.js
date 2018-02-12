@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import styles from './card.module.sass'
 
 const Card = post => (
-  <Link to={post.slug}>
+  <Link to={`/${post.slug}`}>
     <div className={styles.card}>
       {post.headerThumbnail &&
         <img

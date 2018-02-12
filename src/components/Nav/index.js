@@ -10,13 +10,30 @@ const Nav = props => {
     return props.selectedTags.has(slug);
   }
 
-  const nav = (
-    <nav className={styles.nav}>
-      {props.tags.map(tag =>
-        <button className={isSelected(tag.slug) ? styles.tagSelected : styles.tag} onClick={() => props.onSelect(tag.slug)} key={tag.slug}>{tag.name}</button>
-      )}
-    </nav>
-  );
+  let nav;
+
+  if (!props.tags || props.tags.length < 2) {
+    nav = (
+      <nav className={styles.navLeft}>
+        <Link to="/" className={styles.button}>View all</Link>
+        {props.tags &&
+          <span>
+          {props.tags.map(tag =>
+            <button className={styles.tagSelected} key={tag.slug}>{tag.name}</button>
+          )}
+          </span>
+        }
+      </nav>
+    )
+  } else {
+    nav = (
+      <nav className={styles.nav}>
+        {props.tags.map(tag =>
+          <button className={isSelected(tag.slug) ? styles.tagSelected : styles.tag} onClick={() => props.onSelect(tag.slug)} key={tag.slug}>{tag.name}</button>
+        )}
+      </nav>
+    );
+  }
 
   return nav;
 }
