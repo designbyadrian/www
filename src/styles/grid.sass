@@ -1,0 +1,19 @@
+@import '~flexboxgrid-sass/flexboxgrid'
+@import '~breakpoint-sass/stylesheets/breakpoint'
+
+$grid-gutter-width: 1rem
+
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+$container-max-widths: (sm: 540px, md: 748px, lg: 960px, xl: 1140px)
+
+@mixin make-container
+  margin-left: auto
+  margin-right: auto
+  padding-left:  ($grid-gutter-width / 2)
+  padding-right: ($grid-gutter-width / 2)
+  width: 100%
+
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints)
+  @each $breakpoint, $container-max-width in $max-widths
+    +breakpoint(map-get($breakpoints, $breakpoint))
+      max-width: $container-max-width

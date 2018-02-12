@@ -1,0 +1,50 @@
+@import '~breakpoint-sass/stylesheets/breakpoint'
+
+@import '../styles/colours'
+@import '../styles/grid'
+@import '../styles/typography'
+
+@mixin page-padding
+  padding-left: $spacer
+  padding-right: $spacer
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    padding-left: map-get($spacers, 4)
+    padding-right: map-get($spacers, 4)
+
+  +breakpoint(map-get($grid-breakpoints, lg))
+    padding-left: map-get($spacers, 5)
+    padding-right: map-get($spacers, 5)
+
+  +breakpoint(map-get($grid-breakpoints, xl))
+    padding-left: map-get($spacers, 6)
+    padding-right: map-get($spacers, 6)
+
+
+.post
+  background-color: $white
+  margin-top: $spacer
+
+.postDate
+  +page-padding
+  color: $wild-blue-yonder
+  font-family: $font-family-dense
+  line-height: 0.8em
+  margin: 0
+  text-transform: uppercase
+
+
+.postTitle
+  +page-padding
+  line-height: 0.8em
+  margin: 0
+  padding-top: map-get($spacers, 3)
+
+
+.postTitleTop
+  composes: postTitle
+  padding-top: map-get($spacers, 5)
+
+.postContent
+  +page-padding
+  padding-bottom: map-get($spacers, 5)

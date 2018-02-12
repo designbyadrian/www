@@ -1,0 +1,40 @@
+@import '~breakpoint-sass/stylesheets/breakpoint'
+
+@import '../../styles/grid'
+@import '../../styles/typography'
+
+
+.image
+  position: relative
+
+  img
+    display: inline-block
+    width: 100%
+    margin: 0
+
+  & > div
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 2
+
+.edge2edge
+  margin-left: $spacer
+  margin-right: $spacer
+  padding-top: map-get($spacers, 4)
+
+  & > div
+    top: map-get($spacers, 4)
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    margin-left: map-get($spacers, 4)
+    margin-right: map-get($spacers, 4)
+
+  +breakpoint(map-get($grid-breakpoints, lg))
+    margin-left: map-get($spacers, 5)
+    margin-right: map-get($spacers, 5)
+
+  +breakpoint(map-get($grid-breakpoints, xl))
+    margin-left: map-get($spacers, 6)
+    margin-right: map-get($spacers, 6)

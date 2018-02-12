@@ -1,0 +1,56 @@
+@import './colours'
+
+$font-family-sans-serif: Lato, 'Lucida Grande', sand-serif
+$font-family-dense: 'Dense', 'Helvetica Neue', 'Helvetica', 'sans-serif'
+
+$spacer: 1rem
+$spacers: (0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3), 6: ($spacer * 4))
+
+$selection-color: $meat-brown
+
+@mixin text-shadow-to-crop-underline($color)
+  text-shadow: .03em 0 $color, -.03em 0 $color, 0 .03em $color, 0 -.03em $color, .06em 0 $color, -.06em 0 $color, .09em 0 $color, -.09em 0 $color, .12em 0 $color, -.12em 0 $color, .15em 0 $color, -.15em 0 $color
+
+@mixin link-underlines($background-color, $color)
+  +text-shadow-to-crop-underline($background-color)
+  background-image: linear-gradient($background-color, $background-color), linear-gradient($background-color, $background-color), linear-gradient($color, $color)
+  background-position: 0% 90%, 100% 90%, 0% 90%
+  background-repeat: no-repeat, no-repeat, repeat-x
+  background-size: .05em 1px, .05em 1px, 1px 1px
+  text-decoration: none
+
+
+  &::selection
+    +text-shadow-to-crop-underline($selection-color)
+    background: $selection-color
+
+  &::before,
+  &::after,
+  *,
+  *::before,
+  *::after
+    text-shadow: none
+
+  &:visited
+    color: $color
+
+a
+  +link-underlines($card-color, $gray-light)
+
+h1
+  color: $russian-violet
+
+h3
+  +link-underlines($card-color, $gray-light)
+  user-select: none
+  margin-bottom: 1rem
+
+h4
+  color: $light-slate-gray
+
+blockquote
+  margin-left: 0
+  padding: 0
+  padding-left: map-get($spacers, 3)
+  border-left: 4px solid $gray-light
+  border-radius: 2px

@@ -1,0 +1,35 @@
+@import '../../styles/buttons'
+@import '../../styles/colours'
+@import '../../styles/typography'
+
+
+.tags
+  display: flex
+  justify-content: flex-start
+  margin: $spacer auto
+
+.tag
+  composes: tag from '../Nav/nav.module.sass'
+  font-size: 20px
+  line-height: 20px
+  margin-right: 20px
+  padding-top: 4px
+
+  &::before
+    background-color: $white
+    width: 5px
+    height: 5px
+    top: 11px
+    right: -6px
+
+  &::after
+    border-bottom-width: 13px
+    border-left-width: 13px
+    border-top-width: 13px
+
+  &:hover
+    background-color: $russian-violet
+    color: $white
+
+    &::after
+      border-left-color: $russian-violet
