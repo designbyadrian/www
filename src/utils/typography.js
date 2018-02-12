@@ -6,9 +6,16 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import {
+  faGithubSquare,
+  faLinkedin,
+  faTwitterSquare
+} from '@fortawesome/fontawesome-free-brands'
+
+import {
   faGem,
   faGlassMartini,
   faGlobe,
+  faHandPointRight,
   faLink,
   faQuoteLeft,
   faQuoteRight
@@ -22,9 +29,13 @@ import {
 } from '@fortawesome/fontawesome-pro-light'
 
 fontawesome.library.add(
+  faGithubSquare,
+  faLinkedin,
+  faTwitterSquare,
   faGem,
   faGlassMartini,
   faGlobe,
+  faHandPointRight,
   faLink,
   faQuoteLeft,
   faQuoteRight,
