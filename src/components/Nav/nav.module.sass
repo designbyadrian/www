@@ -9,55 +9,54 @@
   margin: $spacer auto
 
 .tag
-  background: none
-  background-color: $wild-blue-yonder
+  display: inline-block
+  position: relative
+  margin-right: 20px
+  padding-top: 2px
+  transition: background-color 200ms linear
   border: 0
   border-radius: 2px
+  background: none
+  background-color: $wild-blue-yonder
   color: $body-bg
-  cursor: pointer
-  display: inline-block
   font-family: $font-family-dense
   font-size: 28px
   line-height: 28px
-  margin-right: 20px
-  padding-top: 2px
-  position: relative
-  transition: background-color 200ms linear
+  cursor: pointer
 
   &:focus
     border: 0
     outline: 0
 
   &::before
-    background-color: $body-bg
-    border-radius: 3px
-    content: ''
+    position: absolute
+    top: 13px
+    right: -8px
     width: 6px
     height: 6px
-    position: absolute
-    right: -8px
-    top: 13px
-
+    border-radius: 3px
+    background-color: $body-bg
+    content: ''
     z-index: 2
 
   &::after
-    border-bottom: 16px solid transparent
-    border-left: 16px solid $wild-blue-yonder
-    border-top: 16px solid transparent
-    content: ''
-    height: 0
     position: absolute
-    right: 1px
     top: 0
+    right: 1px
+    width: 0
+    height: 0
     transform: translateX(100%)
     transition: border-color 200ms linear
-    width: 0
+    border-top: 16px solid transparent
+    border-bottom: 16px solid transparent
+    border-left: 16px solid $wild-blue-yonder
+    content: ''
     z-index: 0
 
   &:hover
+    transform-origin: 98% center
     background-color: $white
     animation: shakey 750ms linear
-    transform-origin: 98% center
 
     &::after
       border-left-color: $white
@@ -72,17 +71,24 @@
 @keyframes shakey
   0%, 100%
     transform: rotate(0)
+
   12.5%
     transform: rotate(10deg)
+
   25%
     transform: rotate(-10deg)
+
   37.5%
     transform: rotate(5deg)
+
   50%
     transform: rotate(-5deg)
+
   62.5%
     transform: rotate(2.5deg)
+
   75%
     transform: rotate(-2.5deg)
+
   87.5%
     transform: rotate(1deg)
