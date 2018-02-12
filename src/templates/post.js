@@ -6,6 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import Feature from '../components/Feature'
 import HeaderImage from '../components/HeaderImage'
 import KeyFeatures from '../components/KeyFeatures'
+import Link from '../components/Link'
 import Quote from '../components/Quote'
 import Tags from '../components/Tags'
 
@@ -27,7 +28,8 @@ const renderAst = new rehypeReact({
     'feature': Feature,
     'font-awesome': FontAwesomeIcon,
     'key-features': KeyFeatures,
-    "years-since": YearsSince,
+    'link': Link,
+    'years-since': YearsSince,
   }
 }).Compiler
 

@@ -6,24 +6,32 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import {
+  faGem,
   faGlassMartini,
+  faGlobe,
+  faLink,
   faQuoteLeft,
   faQuoteRight
 } from '@fortawesome/fontawesome-pro-solid'
 
 import {
   faCut,
+  faGamepad,
   faHandSpock,
   faSave
 } from '@fortawesome/fontawesome-pro-light'
 
 fontawesome.library.add(
-  faCut,
-  faHandSpock,
+  faGem,
   faGlassMartini,
-  faSave,
+  faGlobe,
+  faLink,
   faQuoteLeft,
-  faQuoteRight
+  faQuoteRight,
+  faCut,
+  faGamepad,
+  faHandSpock,
+  faSave
 )
 
 console.log(fontawesome.library);
