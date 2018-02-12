@@ -1,15 +1,21 @@
 // https://coolors.co/6e8898-9fb1bc-d3d0cb-e2c044-322342
 $light-slate-gray: rgba(110, 136, 152, 1)
-$wild-blue-yonder: rgba(191, 213, 227, 1)
+$wild-blue-yonder: #9fb1bc
 $light-gray: rgba(211, 208, 203, 1)
 $meat-brown: rgba(226, 192, 68, 1)
 $russian-violet: rgba(50, 35, 66, 1)
 
-$white: #fff
-$gray-light: lighten($light-gray, 10%)
-$gray: $light-gray
-$gray-dark: adjust-color($light-gray, $lightness: -30%, $saturation: -10%)
+$blue-dark: $light-slate-gray
+$blue-light: $wild-blue-yonder
+$blue-lighter: adjust-color($blue-light, $lightness: 20%, $saturation: 10%)
 
-$body-bg: $light-slate-gray
-$text-color: darken($light-slate-gray, 15%)
+$purple: $russian-violet
+
+$white: #fff
+$gray-light: adjust-color($light-gray, $lightness: 15%, $saturation: -10%)
+$gray: $light-gray
+$gray-dark: adjust-color($light-gray, $lightness: -30%, $saturation: -15%)
+
+$body-bg: $blue-dark
+$text-color: darken($blue-dark, 15%)
 $card-color: $white
