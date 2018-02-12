@@ -6,10 +6,10 @@ import Logo from '../Logo';
 import styles from './header.module.sass'
 
 const Header = () => (
-  <div>
+  <Link to="/" className={styles.block}>
     <Logo />
     <h1 className={styles.name}>Design<span>by</span>Adrian</h1>
-  </div>
+  </Link>
 )
 
 export default Header
