@@ -8,11 +8,15 @@
   justify-content: center
   margin: $spacer auto
 
-.tag
+.navLeft
+  composes: nav
+  justify-content: flex-start
+
+.button
   display: inline-block
   position: relative
-  margin-right: 20px
-  padding-top: 2px
+  margin-right: map-get($spacers, 2)
+  padding: 2px 7px
   transition: background-color 200ms linear
   border: 0
   border-radius: 2px
@@ -27,6 +31,14 @@
   &:focus
     border: 0
     outline: 0
+
+  &:hover
+    background-color: $white
+
+
+.tag
+  composes: button
+  margin-right: 20px
 
   &::before
     position: absolute
@@ -55,7 +67,6 @@
 
   &:hover
     transform-origin: 98% center
-    background-color: $white
     animation: shakey 750ms linear
 
     &::after

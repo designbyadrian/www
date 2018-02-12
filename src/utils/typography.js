@@ -79,9 +79,6 @@ const typography = new Typography({
     h4: {
       'font-size': rhythm(1.2),
       'line-height': rhythm(1.5 / 1.2)
-    },
-    a: {
-      'color': '#322342'
     }
   }),
 });
