@@ -45,9 +45,11 @@ export default ({ data }) => {
       }
       <h1 className={!hasHeaderImage ? styles.postTitleTop : styles.postTitle}>{post.title}</h1>
       <p className={styles.postDate}>{post.timestamp}</p>
-      
+
       <div className={styles.postContent}>
-        <Tags tags={post.tags} />
+        {post.tags &&
+          <Tags tags={post.tags} />
+        }
         {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
       </div>
     </div>
