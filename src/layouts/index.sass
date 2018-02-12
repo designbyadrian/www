@@ -1,5 +1,4 @@
 @import '../styles/colours'
-@import '../styles/typography'
 @import '../styles/grid'
 
 @font-face
@@ -8,11 +7,9 @@
   font-weight: 300
   src: url('../assets/fonts/dense.woff2') format('woff2'), url('../assets/fonts/dense.woff') format('woff')
 
+html, body, body > div
+  height: 100%
 
 body
   background-color: $body-bg
   color: $text-color
-
-.container
-  +make-container
-  +make-container-max-widths

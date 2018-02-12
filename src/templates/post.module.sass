@@ -4,23 +4,6 @@
 @import '../styles/grid'
 @import '../styles/typography'
 
-@mixin page-padding
-  padding-left: $spacer
-  padding-right: $spacer
-
-  +breakpoint(map-get($grid-breakpoints, md))
-    padding-left: map-get($spacers, 4)
-    padding-right: map-get($spacers, 4)
-
-  +breakpoint(map-get($grid-breakpoints, lg))
-    padding-left: map-get($spacers, 5)
-    padding-right: map-get($spacers, 5)
-
-  +breakpoint(map-get($grid-breakpoints, xl))
-    padding-left: map-get($spacers, 6)
-    padding-right: map-get($spacers, 6)
-
-
 .post
   background-color: $white
   margin-top: $spacer

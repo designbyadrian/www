@@ -7,13 +7,29 @@ $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
 $container-max-widths: (sm: 540px, md: 748px, lg: 960px, xl: 1140px)
 
 @mixin make-container
-  margin-left: auto
-  margin-right: auto
-  padding-left:  ($grid-gutter-width / 2)
-  padding-right: ($grid-gutter-width / 2)
   width: 100%
+  margin-right: auto
+  margin-left: auto
+  padding-right: ($grid-gutter-width / 2)
+  padding-left:  ($grid-gutter-width / 2)
 
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints)
   @each $breakpoint, $container-max-width in $max-widths
     +breakpoint(map-get($breakpoints, $breakpoint))
       max-width: $container-max-width
+
+@mixin page-padding
+  padding-right: $spacer
+  padding-left: $spacer
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    padding-right: map-get($spacers, 4)
+    padding-left: map-get($spacers, 4)
+
+  +breakpoint(map-get($grid-breakpoints, lg))
+    padding-right: map-get($spacers, 5)
+    padding-left: map-get($spacers, 5)
+
+  +breakpoint(map-get($grid-breakpoints, xl))
+    padding-right: map-get($spacers, 6)
+    padding-left: map-get($spacers, 6)

@@ -1,4 +1,13 @@
 @import '../../styles/colours'
+@import '../../styles/grid'
+@import '../../styles/typography'
+
 
 .footer
-  
+  margin-top: map-get($spacers, 5)
+  padding: $spacer 0
+  background-color: $purple
+
+.container
+  +make-container
+  +make-container-max-widths
