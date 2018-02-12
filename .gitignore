@@ -5,3 +5,5 @@ public/
 .DS_Store
 
 yarn-error.log
+/gatsby-config.js
+/.npmrc
