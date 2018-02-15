@@ -5,38 +5,41 @@ import verticalRhythm from 'compass-vertical-rhythm';
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-import {
-  faGithubSquare,
-  faLinkedin,
-  faTwitterSquare
-} from '@fortawesome/fontawesome-free-brands'
+// Brands
+import faGithubSquare from '@fortawesome/fontawesome-free-brands/faGithubSquare'
+import faLinkedin from '@fortawesome/fontawesome-free-brands/faLinkedin'
+import faTwitterSquare from '@fortawesome/fontawesome-free-brands/faTwitterSquare'
 
-import {
-  faGem,
-  faGlassMartini,
-  faGlobe,
-  faHandPointRight,
-  faLink,
-  faQuoteLeft,
-  faQuoteRight
-} from '@fortawesome/fontawesome-pro-solid'
+// Solids
+import faPaperPlane from '@fortawesome/fontawesome-pro-solid/faPaperPlane'
+import faGem from '@fortawesome/fontawesome-pro-solid/faGem'
+import faGlassMartini from '@fortawesome/fontawesome-pro-solid/faGlassMartini'
+import faGlobe from '@fortawesome/fontawesome-pro-solid/faGlobe'
+import faHandPointRight from '@fortawesome/fontawesome-pro-solid/faHandPointRight'
+import faHeart from '@fortawesome/fontawesome-pro-solid/faHeart'
+import faLink from '@fortawesome/fontawesome-pro-solid/faLink'
+import faSpinner from '@fortawesome/fontawesome-pro-solid/faSpinner'
+import faQuoteLeft from '@fortawesome/fontawesome-pro-solid/faQuoteLeft'
+import faQuoteRight from '@fortawesome/fontawesome-pro-solid/faQuoteRight'
 
-import {
-  faCut,
-  faGamepad,
-  faHandSpock,
-  faSave
-} from '@fortawesome/fontawesome-pro-light'
+// Lights
+import faCut from '@fortawesome/fontawesome-pro-light/faCut'
+import faGamepad from '@fortawesome/fontawesome-pro-light/faGamepad'
+import faHandSpock from '@fortawesome/fontawesome-pro-light/faHandSpock'
+import faSave from '@fortawesome/fontawesome-pro-light/faSave'
 
 fontawesome.library.add(
   faGithubSquare,
   faLinkedin,
   faTwitterSquare,
+  faPaperPlane,
   faGem,
   faGlassMartini,
   faGlobe,
   faHandPointRight,
+  faHeart,
   faLink,
+  faSpinner,
   faQuoteLeft,
   faQuoteRight,
   faCut,
@@ -45,7 +48,7 @@ fontawesome.library.add(
   faSave
 )
 
-console.log(fontawesome.library);
+console.log(fontawesome);
 
 const typography = new Typography({
   googleFonts: [

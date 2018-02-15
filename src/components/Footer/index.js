@@ -2,18 +2,20 @@ import React from 'react'
 import Link from 'gatsby-link'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
+import Contact from '../ContactForm'
+
 import styles from './footer.module.sass'
 
 const Footer = () => (
   <div className={styles.footer}>
     <div className={styles.container}>
       <div className="row">
-        <div className="col-xs-12 col-md-4">
+        <div className={`col-xs-12 col-sm-6 col-md-4 ${styles.colAbout}`}>
           <h4>About</h4>
           <p>Web designer and developer with 12 years of experience. With past work in graphics and interaction design, and studies in computer science and human-computer interaction (HCI), I am Designer Slash Developer.</p>
           <p><Link to="/about-me" className={styles.bounceHand}>Read more <FontAwesomeIcon icon={['fas', 'hand-point-right']} /></Link></p>
         </div>
-        <div className="col-xs-12 col-md-4">
+        <div className={`col-xs-12 col-sm-6 col-md-4 ${styles.colLinks}`}>
           <h4>I'm also on</h4>
           <p>
             <a href="https://www.linkedin.com/in/designbyadrian" target="_blank" title="LinkedIn"><FontAwesomeIcon size="4x" icon={['fab', 'linkedin']} /></a>&nbsp;
@@ -21,8 +23,9 @@ const Footer = () => (
             <a href="https://github.com/designbyadrian" target="_blank" title="GitHub"><FontAwesomeIcon size="4x" icon={['fab', 'github-square']} /></a>
           </p>
         </div>
-        <div className="col-xs-12 col-md-4">
+        <div className={`col-xs-12 col-sm-6 col-md-4 ${styles.colContact}`}>
           <h4>Get in touch</h4>
+          <Contact />
         </div>
       </div>
       <div className="row">

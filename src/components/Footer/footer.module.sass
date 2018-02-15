@@ -29,6 +29,27 @@
     svg
       animation: bounce 1s infinite forwards
 
+.colAbout
+  order: 1
+
+.colLinks
+  order: 2
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    order: 3
+
+  +breakpoint(map-get($grid-breakpoints, lg))
+    order: 2
+
+.colContact
+  order: 3
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    order: 2
+
+  +breakpoint(map-get($grid-breakpoints, lg))
+    order: 3
+
 @keyframes bounce
   0%, 20%, 100%
     transform: translateX(0)
