@@ -1,0 +1,32 @@
+.appear
+  transform: translateY(100%)
+  opacity: .01
+
+.appear.appearActive
+  transform: translateY(0)
+  transition-duration: 200ms
+  transition-property: opacity, transform
+  transition-timing-function: cubic-bezier(.075, .82, .165, 1)
+  opacity: 1
+
+.enter
+  transform: translateY(50%)
+  opacity: .01
+
+.enter.enterActive
+  transform: translateY(0)
+  transition-duration: 200ms
+  transition-property: opacity, transform
+  transition-timing-function: cubic-bezier(.075, .82, .165, 1)
+  opacity: 1
+
+.leave
+  transform: translateY(0%)
+  opacity: 1
+
+.leave.leaveActive
+  transform: translateY(50%)
+  transition-duration: 100ms
+  transition-property: opacity, transform
+  transition-timing-function: cubic-bezier(.755, .05, .855, .06)
+  opacity: .01

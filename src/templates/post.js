@@ -2,6 +2,7 @@ import React from "react";
 import rehypeReact from "rehype-react";
 import Img from 'react-image'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Feature from '../components/Feature'
 import HeaderImage from '../components/HeaderImage'
@@ -36,25 +37,36 @@ const renderAst = new rehypeReact({
 export default ({ data }) => {
   const post = data.contentfulPost;
   const hasHeaderImage = post.headerImage !== null;
-  console.log("post", post);
-  return (
-    <div className={`${styles.post}`}>
-      {post.headerImage &&
-        <HeaderImage
-          edge2edge={post.edgeToEdgeHeaderImage}
-          {...post.headerImage}
-        />
-      }
-      <h1 className={!hasHeaderImage ? styles.postTitleTop : styles.postTitle}>{post.title}</h1>
-      <p className={styles.postDate}>{post.timestamp}</p>
 
-      <div className={styles.postContent}>
-        {post.tags &&
-          <Tags tags={post.tags} />
+  return (
+    <ReactCSSTransitionGroup
+      transitionName={{
+        appear: styles.postAppear,
+        appearActive: styles.postAppearActive
+      }}
+      transitionAppear={true}
+      transitionAppearTimeout={300}
+      transitionEnter={false}
+      transitionLeave={false}
+    >
+      <div key={post.slug} className={`${styles.post}`}>
+        {post.headerImage &&
+          <HeaderImage
+            edge2edge={post.edgeToEdgeHeaderImage}
+            {...post.headerImage}
+          />
         }
-        {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
+        <h1 className={!hasHeaderImage ? styles.postTitleTop : styles.postTitle}>{post.title}</h1>
+        <p className={styles.postDate}>{post.timestamp}</p>
+
+        <div className={styles.postContent}>
+          {post.tags &&
+            <Tags tags={post.tags} />
+          }
+          {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
+        </div>
       </div>
-    </div>
+    </ReactCSSTransitionGroup>
   );
 };
 
@@ -62,6 +74,7 @@ export const query = graphql`
   query Post($slug: String!) {
     contentfulPost(slug: { eq: $slug }) {
       title
+      slug
       timestamp(formatString: "MMMM Do, YYYY")
       tags {
         name

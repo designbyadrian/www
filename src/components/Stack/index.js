@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Card from '../Card'
+
+import styles from './stack.module.sass'
 
 const Stack = props => {
 
@@ -18,9 +21,16 @@ const Stack = props => {
   }
 
   return (
-    <div className="row">
+    <ReactCSSTransitionGroup
+      transitionName={styles}
+      transitionAppear={true}
+      transitionAppearTimeout={200}
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={100}
+      component="div" className="row"
+    >
       {cards}
-    </div>
+    </ReactCSSTransitionGroup>
   )
 }
 

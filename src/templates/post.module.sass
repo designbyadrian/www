@@ -5,14 +5,25 @@
 @import '../styles/typography'
 
 .post
-  background-color: $white
   margin-top: $spacer
+  background-color: $white
   box-shadow: 0 2px 2px darken($body-bg, 10%)
 
   p
     a:not(.custom)
       +link-underlines($card-color, $gray)
       color: $purple
+
+.postAppear
+  transform: translateY(100%)
+  opacity: .01
+
+.postAppear.postAppearActive
+  transform: translateY(0)
+  transition-duration: 300ms
+  transition-property: opacity, transform
+  transition-timing-function: cubic-bezier(.075, .82, .165, 1)
+  opacity: 1
 
 .postDate
   +page-padding
