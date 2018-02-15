@@ -3,19 +3,47 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import styles from './header.module.sass'
 
-const HeaderImage = props => (
-  <div className={`${styles.image} ${!props.edge2edge ? styles.edge2edge : ''}`}>
-    <div>
-      <img
-        src={props.sizes.src}
-        srcSet={props.sizes.srcSet}
-        sizes={props.sizes.sizes}
-      />
-    </div>
-    <img
-      src={props.resize.src}
-    />
-  </div>
-)
+class HeaderImage extends React.PureComponent {
+
+  constructor(props) {
+    super(props);
+
+    this.imageLoaded = this.imageLoaded.bind(this);
+
+    this.state = { loaded: false };
+  }
+
+  componentDidMount() {
+    this.refs.image.onload = this.imageLoaded;
+  }
+
+  imageLoaded() {
+    this.setState({ loaded: true });
+  }
+
+  render() {
+    return (
+      <div className={`${styles.image} ${!this.props.edge2edge ? styles.edge2edge : ''}`}>
+        <div className={styles.bigWrapper}>
+          <img
+            ref="image"
+            className={this.state.loaded ? styles.bigLoaded : styles.big}
+            src={this.props.sizes.src}
+            srcSet={this.props.sizes.srcSet}
+            sizes={this.props.sizes.sizes}
+          />
+        </div>
+        {!this.state.loaded &&
+          <div className={styles.loader}><FontAwesomeIcon icon={['fas', 'spinner']} size="3x" pulse /></div>
+        }
+        <img
+          src={this.props.resize.src}
+        />
+      </div>
+    )
+  }
+}
+
+
 
 export default HeaderImage
