@@ -20,8 +20,7 @@ export const query = graphql`
           title
           slug
           headerThumbnail {
-            sizes(maxWidth: 400) {
-              sizes
+            resolutions(width: 400, height: 400) {
               src
               srcSet
             }

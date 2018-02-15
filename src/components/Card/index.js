@@ -8,9 +8,8 @@ const Card = post => (
     <div className={styles.card}>
       {post.headerThumbnail &&
         <img
-          src={post.headerThumbnail.sizes.src}
-          srcSet={post.headerThumbnail.sizes.srcSet}
-          sizes={post.headerThumbnail.sizes.sizes}
+          src={post.headerThumbnail.resolutions.src}
+          srcSet={post.headerThumbnail.resolutions.srcSet}
         />
       }
       <h2 className={styles.cardTitle}>{post.title}</h2>
