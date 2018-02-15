@@ -6,49 +6,63 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 // Brands
+import faBitcoin from '@fortawesome/fontawesome-free-brands/faBitcoin'
+import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
 import faGithubSquare from '@fortawesome/fontawesome-free-brands/faGithubSquare'
 import faLinkedin from '@fortawesome/fontawesome-free-brands/faLinkedin'
 import faTwitterSquare from '@fortawesome/fontawesome-free-brands/faTwitterSquare'
 
 // Solids
-import faPaperPlane from '@fortawesome/fontawesome-pro-solid/faPaperPlane'
+import faBeer from '@fortawesome/fontawesome-pro-solid/faBeer'
+import faCalendar from '@fortawesome/fontawesome-pro-solid/faCalendar'
 import faGem from '@fortawesome/fontawesome-pro-solid/faGem'
 import faGlassMartini from '@fortawesome/fontawesome-pro-solid/faGlassMartini'
 import faGlobe from '@fortawesome/fontawesome-pro-solid/faGlobe'
+import faHandPointUp from '@fortawesome/fontawesome-pro-solid/faHandPointUp'
 import faHandPointRight from '@fortawesome/fontawesome-pro-solid/faHandPointRight'
 import faHeart from '@fortawesome/fontawesome-pro-solid/faHeart'
 import faLink from '@fortawesome/fontawesome-pro-solid/faLink'
+import faMoneyBillAlt from '@fortawesome/fontawesome-pro-solid/faMoneyBillAlt'
+import faPaperPlane from '@fortawesome/fontawesome-pro-solid/faPaperPlane'
+import faPlane from '@fortawesome/fontawesome-pro-solid/faPlane'
 import faSpinner from '@fortawesome/fontawesome-pro-solid/faSpinner'
 import faQuoteLeft from '@fortawesome/fontawesome-pro-solid/faQuoteLeft'
 import faQuoteRight from '@fortawesome/fontawesome-pro-solid/faQuoteRight'
 
 // Lights
+import faCreditCard from '@fortawesome/fontawesome-pro-light/faCreditCard'
 import faCut from '@fortawesome/fontawesome-pro-light/faCut'
 import faGamepad from '@fortawesome/fontawesome-pro-light/faGamepad'
 import faHandSpock from '@fortawesome/fontawesome-pro-light/faHandSpock'
 import faSave from '@fortawesome/fontawesome-pro-light/faSave'
 
 fontawesome.library.add(
+  faBitcoin,
+  faFacebookF,
   faGithubSquare,
   faLinkedin,
   faTwitterSquare,
-  faPaperPlane,
+  faBeer,
+  faCalendar,
   faGem,
   faGlassMartini,
   faGlobe,
+  faHandPointUp,
   faHandPointRight,
   faHeart,
   faLink,
+  faMoneyBillAlt,
+  faPaperPlane,
+  faPlane,
   faSpinner,
   faQuoteLeft,
   faQuoteRight,
+  faCreditCard,
   faCut,
   faGamepad,
   faHandSpock,
   faSave
 )
-
-console.log(fontawesome);
 
 const typography = new Typography({
   googleFonts: [

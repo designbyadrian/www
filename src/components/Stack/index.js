@@ -26,7 +26,7 @@ const Stack = props => {
       transitionAppear={true}
       transitionAppearTimeout={200}
       transitionEnterTimeout={200}
-      transitionLeaveTimeout={100}
+      transitionLeaveTimeout={200}
       component="div" className="row"
     >
       {cards}

@@ -4,10 +4,16 @@
 
 .feature
   width: 100%
+  margin-bottom: $spacer
 
 .icon
-  text-align: center
   color: $blue-dark
+  text-align: center
+  animation-name: wiggle
+  animation-duration: 6s
+  animation-iteration-count: infinite
+  animation-timing-function: ease-in-out
+
 
   & > div
     position: relative
@@ -33,3 +39,11 @@
 .content
   font-size: 0.8em
   font-family: $font-family-sans-serif
+
+@keyframes wiggle
+  0%, 90%, 100%
+    transform: rotate(0deg)
+  92%, 96%
+    transform: rotate(5deg)
+  94%, 98%
+    transform: rotate(-5deg)

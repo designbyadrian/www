@@ -6,6 +6,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Feature from '../components/Feature'
 import HeaderImage from '../components/HeaderImage'
+import Image from '../components/Image'
 import KeyFeatures from '../components/KeyFeatures'
 import Link from '../components/Link'
 import Quote from '../components/Quote'
@@ -22,22 +23,24 @@ const YearsSince = props => {
   )
 }
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    'block-quote': Quote,
-    'feature': Feature,
-    'font-awesome': FontAwesomeIcon,
-    'key-features': KeyFeatures,
-    'link': Link,
-    'years-since': YearsSince,
-  }
-}).Compiler
-
-export default ({ data }) => {
-  const post = data.contentfulPost;
+export default (props) => {
+  const post = props.data.contentfulPost;
   const hasHeaderImage = post.headerImage !== null;
   const edge2edge = post.edgeToEdgeHeaderImage;
+  const renderAst = new rehypeReact({
+    createElement: React.createElement,
+    components: {
+      'block-quote': Quote,
+      'feature': Feature,
+      'font-awesome': FontAwesomeIcon,
+      'custom-image': props => <Image {...props} images={post.images} />,
+      'key-features': KeyFeatures,
+      'link': Link,
+      'years-since': YearsSince,
+    }
+  }).Compiler;
+
+  props.setTheme(post.theme);
 
   return (
     <ReactCSSTransitionGroup
@@ -76,18 +79,20 @@ export const query = graphql`
     contentfulPost(slug: { eq: $slug }) {
       title
       slug
+      theme
       timestamp(formatString: "MMMM Do, YYYY")
       tags {
         name
         slug
       }
       headerImage {
+        description
         sizes(maxWidth: 1122) {
           sizes
           src
           srcSet
         }
-        resize(width: 40, quality: 50) {
+        resize(width: 60, quality: 50) {
           src
         }
       }
@@ -97,6 +102,14 @@ export const query = graphql`
 			    htmlAst
 			  }
 			}
+      images {
+        title
+        description
+        sizes (maxWidth: 1122) {
+          src
+          srcSet
+        }
+      }
     }
   }
 `;

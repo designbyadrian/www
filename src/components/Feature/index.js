@@ -7,7 +7,7 @@ const Feature = props => (
   <div className={styles.feature}>
     <div className={styles.icon}>
       <div>
-        <FontAwesomeIcon icon={[props.iconPrefix || 'fal', props.icon]} />
+        <FontAwesomeIcon icon={[props.iconprefix || 'fal', props.icon]} />
         <img className={styles.balloon} src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""/>
       </div>
     </div>

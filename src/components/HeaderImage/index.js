@@ -28,6 +28,7 @@ class HeaderImage extends React.PureComponent {
           <img
             ref="image"
             className={this.state.loaded ? styles.bigLoaded : styles.big}
+            alt={this.props.description}
             src={this.props.sizes.src}
             srcSet={this.props.sizes.srcSet}
             sizes={this.props.sizes.sizes}

@@ -41,8 +41,9 @@ h1
   color: $purple
 
 h3
-  +link-underlines($card-color, $gray-light)
   margin-bottom: 1rem
+  padding-bottom: map-get($spacers, 1)
+  border-bottom: 1px solid $gray-light
   user-select: none
 
 h4
@@ -54,3 +55,8 @@ blockquote
   padding-left: map-get($spacers, 3)
   border-left: 4px solid $gray-light
   border-radius: 2px
+
+hr
+  margin: 1em 0
+  border-bottom: 1px solid $gray-light
+  background: none
