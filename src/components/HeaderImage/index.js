@@ -23,7 +23,7 @@ class HeaderImage extends React.PureComponent {
 
   render() {
     return (
-      <div className={`${styles.image} ${!this.props.edge2edge ? styles.edge2edge : ''}`}>
+      <div className={`${styles.image} ${!this.props.edge2edge ? styles.padded : ''}`}>
         <div className={styles.bigWrapper}>
           <img
             ref="image"

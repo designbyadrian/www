@@ -4,6 +4,7 @@
 @import '../styles/grid'
 @import '../styles/typography'
 
+
 .post
   margin-top: $spacer
   background-color: $white
@@ -27,23 +28,19 @@
 
 .postDate
   +page-padding
+  margin: 0
   color: $blue-light
   font-family: $font-family-dense
-  line-height: 0.8em
-  margin: 0
+  line-height: .8em
   text-transform: uppercase
 
 
 .postTitle
   +page-padding
-  line-height: 0.8em
   margin: 0
-  padding-top: map-get($spacers, 3)
-
-
-.postTitleTop
-  composes: postTitle
   padding-top: map-get($spacers, 5)
+  line-height: .8em
+
 
 .postContent
   +page-padding

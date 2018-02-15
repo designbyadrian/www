@@ -37,6 +37,7 @@ const renderAst = new rehypeReact({
 export default ({ data }) => {
   const post = data.contentfulPost;
   const hasHeaderImage = post.headerImage !== null;
+  const edge2edge = post.edgeToEdgeHeaderImage;
 
   return (
     <ReactCSSTransitionGroup
@@ -52,11 +53,11 @@ export default ({ data }) => {
       <div key={post.slug} className={`${styles.post}`}>
         {post.headerImage &&
           <HeaderImage
-            edge2edge={post.edgeToEdgeHeaderImage}
+            edge2edge={edge2edge}
             {...post.headerImage}
           />
         }
-        <h1 className={!hasHeaderImage ? styles.postTitleTop : styles.postTitle}>{post.title}</h1>
+        <h1 className={styles.postTitle}>{post.title}</h1>
         <p className={styles.postDate}>{post.timestamp}</p>
 
         <div className={styles.postContent}>
