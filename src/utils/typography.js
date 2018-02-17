@@ -83,7 +83,7 @@ const typography = new Typography({
     },
   ],
   baseFontSize: '18px',
-  baseLineHeight: 1.5,
+  baseLineHeight: 1.6,
   headerFontFamily: ['Dense', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
   headerWeight: 300,
   bodyFontFamily: ['Merriweather', 'serif'],
