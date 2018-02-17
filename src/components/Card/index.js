@@ -10,7 +10,7 @@ const Card = post => (
     <div className={styles.card}>
       {post.headerThumbnail &&
         <img
-          alt={post.headerThumbnail.description}
+          alt={post.headerThumbnail.description || post.excerpt.excerpt}
           src={post.headerThumbnail.resolutions.src}
           srcSet={post.headerThumbnail.resolutions.srcSet}
         />

@@ -10,6 +10,8 @@ import styles from './image.module.sass'
 const Image = props => {
   let image;
 
+  const hideCaption = props.nocaption !== undefined && props.nocaption !== "true";
+
   props.images.forEach(img => {
     if(img.title === props.title) {
       image = (
@@ -19,7 +21,9 @@ const Image = props => {
             srcSet={img.sizes.srcSet}
             alt={img.description}
           />
-        <figcaption className={styles.caption}>{img.description}</figcaption>
+        {!hideCaption &&
+          <figcaption className={styles.caption}>{img.description}</figcaption>
+        }
       </figure>)
     }
   });
