@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from 'react-helmet'
 import rehypeReact from "rehype-react";
 import Img from 'react-image'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -25,6 +26,7 @@ const YearsSince = props => {
 
 export default (props) => {
   const post = props.data.contentfulPost;
+  const tagString = post.tags ? post.tags.map(tag => tag.name).join(", ") : '';
   const hasHeaderImage = post.headerImage !== null;
   const edge2edge = post.edgeToEdgeHeaderImage;
   const renderAst = new rehypeReact({
@@ -42,37 +44,62 @@ export default (props) => {
 
   props.setTheme(post.theme);
 
-  return (
-    <ReactCSSTransitionGroup
-      transitionName={{
-        appear: styles.postAppear,
-        appearActive: styles.postAppearActive
-      }}
-      transitionAppear={true}
-      transitionAppearTimeout={300}
-      transitionEnter={false}
-      transitionLeave={false}
-    >
-      <div key={post.slug} className={`${styles.post}`}>
-        {post.headerImage &&
-          <HeaderImage
-            edge2edge={edge2edge}
-            {...post.headerImage}
-          />
-        }
-        <h1 className={styles.postTitle}>{post.title}</h1>
-        <p className={styles.postDate}>{post.timestamp}</p>
+  const meta = [
+    { name: 'description', content: post.excerpt.excerpt },
+    { name: 'keywords', content: tagString },
+    { name: 'twitter:site', content: '@designbyadrian' },
+    { name: 'twitter:title', content: post.title },
+    { name: 'twitter:description', content: post.excerpt.excerpt },
+    { name: 'twitter:creator', content: '@designbyadrian'},
+    { name: 'og:site_name', content: 'Design by Adrian' },
+    { name: 'og:title', content: post.title },
+    { name: 'og:description', content: post.excerpt.excerpt },
+    { name: 'og:type', content: 'article' },
+    { name: 'og:url', content: `http://designbyadrian.com/${post.slug}` },
+    { name: 'og:image', content: post.ogFacebookImage.resize.src },
+  ];
 
-        <div className={styles.contentWrapper}>
-          {post.tags &&
-            <Tags tags={post.tags} />
+  if (post.ogTwitterImage) {
+    meta.push({ name: 'twitter:card', content: post.ogTwitterImage.resize.src });
+  }
+
+  return (
+    <span>
+      <Helmet
+        title={`${post.title} by Design by Adrian`}
+        meta={meta}
+      />
+      <ReactCSSTransitionGroup
+        transitionName={{
+          appear: styles.postAppear,
+          appearActive: styles.postAppearActive
+        }}
+        transitionAppear={true}
+        transitionAppearTimeout={300}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <div key={post.slug} className={`${styles.post}`}>
+          {post.headerImage &&
+            <HeaderImage
+              edge2edge={edge2edge}
+              {...post.headerImage}
+            />
           }
-          <div className={styles.postContent}>
-            {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
+          <h1 className={styles.postTitle}>{post.title}</h1>
+          <p className={styles.postDate}>{post.timestamp}</p>
+
+          <div className={styles.contentWrapper}>
+            {post.tags &&
+              <Tags tags={post.tags} />
+            }
+            <div className={styles.postContent}>
+              {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
+            </div>
           </div>
         </div>
-      </div>
-    </ReactCSSTransitionGroup>
+      </ReactCSSTransitionGroup>
+    </span>
   );
 };
 
@@ -82,10 +109,23 @@ export const query = graphql`
       title
       slug
       theme
+      excerpt {
+        excerpt
+      }
       timestamp(formatString: "MMMM Do, YYYY")
       tags {
         name
         slug
+      }
+      ogTwitterImage: headerImage{
+        resize(width: 1200, height: 660) {
+          src
+        }
+      }
+      ogFacebookImage: headerThumbnail{
+        resize(width: 1200, height: 1200) {
+          src
+        }
       }
       headerImage {
         description
