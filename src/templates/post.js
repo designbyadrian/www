@@ -63,11 +63,13 @@ export default (props) => {
         <h1 className={styles.postTitle}>{post.title}</h1>
         <p className={styles.postDate}>{post.timestamp}</p>
 
-        <div className={styles.postContent}>
+        <div className={styles.contentWrapper}>
           {post.tags &&
             <Tags tags={post.tags} />
           }
-          {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
+          <div className={styles.postContent}>
+            {renderAst(post.childContentfulPostContentTextNode.childMarkdownRemark.htmlAst)}
+          </div>
         </div>
       </div>
     </ReactCSSTransitionGroup>

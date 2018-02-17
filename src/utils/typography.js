@@ -8,6 +8,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 // Brands
 import faBitcoin from '@fortawesome/fontawesome-free-brands/faBitcoin'
 import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
+import faGithubAlt from '@fortawesome/fontawesome-free-brands/faGithubAlt'
 import faGithubSquare from '@fortawesome/fontawesome-free-brands/faGithubSquare'
 import faLinkedin from '@fortawesome/fontawesome-free-brands/faLinkedin'
 import faTwitterSquare from '@fortawesome/fontawesome-free-brands/faTwitterSquare'
@@ -15,10 +16,11 @@ import faTwitterSquare from '@fortawesome/fontawesome-free-brands/faTwitterSquar
 // Solids
 import faBeer from '@fortawesome/fontawesome-pro-solid/faBeer'
 import faCalendar from '@fortawesome/fontawesome-pro-solid/faCalendar'
+import faGamepad from '@fortawesome/fontawesome-pro-solid/faGamepad'
 import faGem from '@fortawesome/fontawesome-pro-solid/faGem'
 import faGlassMartini from '@fortawesome/fontawesome-pro-solid/faGlassMartini'
 import faGlobe from '@fortawesome/fontawesome-pro-solid/faGlobe'
-import faHandPointUp from '@fortawesome/fontawesome-pro-solid/faHandPointUp'
+import faHandPointer from '@fortawesome/fontawesome-pro-solid/faHandPointer'
 import faHandPointRight from '@fortawesome/fontawesome-pro-solid/faHandPointRight'
 import faHeart from '@fortawesome/fontawesome-pro-solid/faHeart'
 import faLink from '@fortawesome/fontawesome-pro-solid/faLink'
@@ -32,22 +34,23 @@ import faQuoteRight from '@fortawesome/fontawesome-pro-solid/faQuoteRight'
 // Lights
 import faCreditCard from '@fortawesome/fontawesome-pro-light/faCreditCard'
 import faCut from '@fortawesome/fontawesome-pro-light/faCut'
-import faGamepad from '@fortawesome/fontawesome-pro-light/faGamepad'
 import faHandSpock from '@fortawesome/fontawesome-pro-light/faHandSpock'
 import faSave from '@fortawesome/fontawesome-pro-light/faSave'
 
 fontawesome.library.add(
   faBitcoin,
   faFacebookF,
+  faGithubAlt,
   faGithubSquare,
   faLinkedin,
   faTwitterSquare,
   faBeer,
   faCalendar,
+  faGamepad,
   faGem,
   faGlassMartini,
   faGlobe,
-  faHandPointUp,
+  faHandPointer,
   faHandPointRight,
   faHeart,
   faLink,
@@ -59,7 +62,6 @@ fontawesome.library.add(
   faQuoteRight,
   faCreditCard,
   faCut,
-  faGamepad,
   faHandSpock,
   faSave
 )

@@ -10,10 +10,6 @@
   background-color: $white
   box-shadow: 0 2px 2px darken($body-bg, 10%)
 
-  p
-    a:not(.custom)
-      +link-underlines($card-color, $gray)
-      color: $purple
 
 .postAppear
   transform: translateY(100%)
@@ -42,6 +38,11 @@
   line-height: .8em
 
 
-.postContent
+.contentWrapper
   +page-padding
   padding-bottom: map-get($spacers, 5)
+
+
+.postContent
+  a:not(.link)
+    +link

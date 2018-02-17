@@ -6,33 +6,40 @@ $font-family-dense: 'Dense', 'Helvetica Neue', 'Helvetica', 'sans-serif'
 $spacer: 1rem
 $spacers: (0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3), 6: ($spacer * 4))
 
-$selection-color: $meat-brown
-
-@mixin text-shadow-to-crop-underline($color)
-  text-shadow: .03em 0 $color, -.03em 0 $color, 0 .03em $color, 0 -.03em $color, .06em 0 $color, -.06em 0 $color, .09em 0 $color, -.09em 0 $color, .12em 0 $color, -.12em 0 $color, .15em 0 $color, -.15em 0 $color
-
-@mixin link-underlines($background-color, $color)
-  +text-shadow-to-crop-underline($background-color)
-  background-image: linear-gradient($background-color, $background-color), linear-gradient($background-color, $background-color), linear-gradient($color, $color)
-  background-repeat: no-repeat, no-repeat, repeat-x
-  background-position: 0% 90%, 100% 90%, 0% 90%
-  background-size: .05em 1px, .05em 1px, 1px 1px
+@mixin link
+  display: inline-block
+  position: relative
+  transition: color 200ms linear
+  color: inherit
+  font-weight: 400
   text-decoration: none
 
-
-  &::selection
-    +text-shadow-to-crop-underline($selection-color)
-    background: $selection-color
-
   &::before,
-  &::after,
-  *,
-  *::before,
-  *::after
-    text-shadow: none
+  &::after
+    position: absolute
+    right: 0
+    bottom: .1em
+    left: 0
+    height: 1px
+    border-bottom: 1px solid $gray
+    content: ''
 
-  &:visited
-    color: $color
+  &::before
+    right: 50%
+    left: 50%
+    transition-duration: 200ms
+    transition-property: left, right
+    transition-timing-function: ease-in-out
+    border-color: $purple
+    z-index: 2
+
+  &:hover
+    color: $purple
+
+    &::before
+      right: 0
+      left: 0
+
 
 a
   text-decoration: none
