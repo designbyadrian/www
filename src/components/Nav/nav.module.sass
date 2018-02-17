@@ -73,12 +73,19 @@
     &::after
       border-left-color: $white
 
-.tagSelected
+.tagSelected,
   composes: tag
   background-color: $purple
 
   &::after
     border-left-color: $purple
+
+  &:hover
+    background-color: $purple
+
+    &::after
+      border-left-color: $purple
+
 
 @keyframes shakey
   0%, 100%
