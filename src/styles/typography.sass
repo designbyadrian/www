@@ -1,7 +1,7 @@
 @import './colours'
 
-$font-family-sans-serif: Lato, 'Lucida Grande', sand-serif
-$font-family-dense: 'Dense', 'Helvetica Neue', 'Helvetica', 'sans-serif'
+$font-family-sans-serif: Lato, 'Lucida Grande', sans-serif
+$font-family-dense: 'Dense', 'Helvetica Neue', 'Helvetica', sans-serif
 
 $spacer: 1rem
 $spacers: (0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3), 6: ($spacer * 4))
@@ -14,7 +14,15 @@ $spacers: (0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer 
   font-weight: 400
   text-decoration: none
 
-  &::before,
+  &::before
+    position: absolute
+    right: 0
+    bottom: .1em
+    left: 0
+    height: 1px
+    border-bottom: 1px solid $gray
+    content: ''
+
   &::after
     position: absolute
     right: 0
