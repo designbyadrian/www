@@ -5,7 +5,8 @@ import Index from '../components/Index'
 export default ({ data }) => {
 
   const tag = data.contentfulTag;
-  const title = `${tag.name} by Design by Adrian`
+  const title = `${tag.name} by Design by Adrian`;
+  const description = tag.description || '';
 
   const tags = [{
     name: tag.name,
@@ -17,14 +18,14 @@ export default ({ data }) => {
       <Helmet
         title={title}
         meta={[
-          { name: 'description', content: tag.description },
+          { name: 'description', content: description },
           { name: 'twitter:site', content: '@designbyadrian' },
           { name: 'twitter:title', content: title },
-          { name: 'twitter:description', content: tag.description },
+          { name: 'twitter:description', content: description },
           { name: 'twitter:creator', content: '@designbyadrian'},
           { name: 'og:site_name', content: 'Design by Adrian' },
           { name: 'og:title', content: title },
-          { name: 'og:description', content: tag.description },
+          { name: 'og:description', content: description },
           { name: 'og:url', content: `http://designbyadrian.com/tag/${tag.slug}` },
           { name: 'og:image', content: '//images.contentful.com/d60afbtj8nr5/12GyuuzLvAiaEgISkmeEsk/07102008841d5ebc8e6daf5101e65f9b/face.jpg?w=1200&h=1200&fl=progressive&q=50&fit=fill'}
         ]}
