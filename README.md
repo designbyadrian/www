@@ -4,60 +4,34 @@ It's rude digging through other people's code 😠
 
 ## Local
 
-`$ gatsby develop`
+**TL;DR**: `$ gatsby develop`
 
-**You also need these two files:**
+1) Create 📄 `.env.development` with these lines:
 
-📄 gatsby-config.js
-
-```javascript
-module.exports = {
-  siteMetadata: {
-    title: 'Design by Adrian',
-  },
-  plugins: [
-    'gatsby-plugin-react-next',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-plugin-react-css-modules',
-      options: {
-        filetypes: {
-          ".sass": { syntax: 'postcss-sass' },
-        },
-        exclude: '\/global\/',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography.js',
-      },
-    },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        spaceId: '?',
-        accessToken: '?',
-      },
-    },
-    {
-    resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: ["gatsby-remark-component"]
-      }
-    }
-  ],
-};
-
+```env
+CONTENTFUL_SPACE_ID=
+CONTENTFUL_ACCESS_TOKEN=
+GATSBY_CAPTCHA_SITE_KEY=
 ```
 
-📄 .npmrc
+2) Create 📄 `.npmrc` with this line:
 
 ```
 @fortawesome:registry=https://npm.fontawesome.com/ACCESS_TOKEN
 ```
 
+3) `$ gatsby develop`
+
 ## Deploy
 
-`$ gatsby build`
+1) Create 📄 `.env.production` with these lines:
+
+```env
+CONTENTFUL_SPACE_ID=
+CONTENTFUL_ACCESS_TOKEN=
+GATSBY_CAPTCHA_SITE_KEY=
+```
+
+2) `$ gatsby build`
+
+3) Docker push
