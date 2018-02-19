@@ -24,8 +24,7 @@ const Footer = () => (
           </p>
         </div>
         <div className={`col-xs-12 col-sm-6 col-md-4 ${styles.colContact}`}>
-          <h4>Get in touch</h4>
-          <Contact />
+          
         </div>
       </div>
       <div className="row">

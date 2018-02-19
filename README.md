@@ -11,6 +11,7 @@ It's rude digging through other people's code 😠
 ```env
 CONTENTFUL_SPACE_ID=
 CONTENTFUL_ACCESS_TOKEN=
+GOOGLE_ANALYTICS_TRACKING_ID=
 GATSBY_CAPTCHA_SITE_KEY=
 ```
 
@@ -29,9 +30,12 @@ GATSBY_CAPTCHA_SITE_KEY=
 ```env
 CONTENTFUL_SPACE_ID=
 CONTENTFUL_ACCESS_TOKEN=
+GOOGLE_ANALYTICS_TRACKING_ID=
 GATSBY_CAPTCHA_SITE_KEY=
 ```
 
 2) `$ gatsby build`
 
 3) Docker push
+
+4) `$ docker run --rm myproject/website`

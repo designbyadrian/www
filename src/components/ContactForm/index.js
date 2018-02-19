@@ -1,36 +1,38 @@
 import React from 'react'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import Recaptcha from 'react-google-invisible-recaptcha';
 
 import styles from './contact.module.sass'
+
+// https://nodemailer.com/about/
+// https://ciunkos.com/creating-contact-forms-with-nodemailer-and-react
+
+// http://emumba.com/blog/2016-12-07-setting-up-google-recaptcha-in-a-reactjs-app/
 
 class Contact extends React.PureComponent {
 
   constructor(props) {
     super(props)
 
-    this.setTrap = this.setTrap.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateField = this.validateField.bind(this);
     this.validateForm = this.validateForm.bind(this);
 
+    this.captchaOnLoad = this.captchaOnLoad.bind(this);
+    this.captchaVerify = this.captchaVerify.bind(this);
+
     this.state = {
       name: '',
       email: '',
       message: '',
-      bot: '',
       nameValid: false,
       emailValid: false,
       messageValid: false,
-      trapValid: false,
       formValid: false,
-      trap: [],
       submitStatus: 'idle',
+      showCaptcha: true,
     };
-  }
-
-  componentWillMount() {
-    this.setTrap();
   }
 
   handleChange(e) {
@@ -46,14 +48,13 @@ class Contact extends React.PureComponent {
     e.preventDefault();
 
     if (!this.state.formValid) {
-      return this.setTrap();
+      return;
     }
 
     this.setState({
       nameValid: false,
       emailValid: false,
       messageValid: false,
-      trapValid: false,
       submitStatus: 'waiting'
     }, () => this.validateForm());
 
@@ -62,16 +63,10 @@ class Contact extends React.PureComponent {
     }, 1000);
   }
 
-  setTrap() {
-    const trap = [this.digit(), this.digit(), Math.random() > 0.5]
-    this.setState({ trap });
-  }
-
   validateField(name, value) {
     let nameValid = this.state.nameValid;
     let emailValid = this.state.emailValid;
     let messageValid = this.state.messageValid;
-    let trapValid = this.state.trapValid;
 
     switch(name) {
       case 'name':
@@ -83,10 +78,6 @@ class Contact extends React.PureComponent {
       case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) !== null;
         break;
-      case 'bot':
-        const robotTest = eval(`${this.state.trap[0]} ${this.state.trap[2] ? '+' : '-'} ${this.state.trap[1]}`)
-        trapValid = robotTest == parseInt(value, 10);
-        break;
       default:
         break;
     }
@@ -95,26 +86,26 @@ class Contact extends React.PureComponent {
       nameValid,
       emailValid,
       messageValid,
-      trapValid,
     }, () => this.validateForm());
   }
 
   validateForm() {
     const formValid = this.state.nameValid &&
             this.state.emailValid &&
-            this.state.messageValid &&
-            this.state.trapValid;
+            this.state.messageValid;
 
     this.setState({ formValid });
   }
 
-  digit() {
-    return Math.floor(Math.random() * 10);
+  captchaOnLoad() {
+    console.log("captcha load");
+  }
+
+  captchaVerify() {
+    console.log("captcha verify");
   }
 
   render() {
-    const robotTest = `${this.state.trap[0]} ${this.state.trap[2] ? '+' : '-'} ${this.state.trap[1]}`
-
     let submitMessage = '';
 
     switch(this.state.submitStatus) {
@@ -129,11 +120,20 @@ class Contact extends React.PureComponent {
         break;
     }
 
+    /*
+    <Recaptcha
+      ref={ ref => this.recaptcha = ref }
+      sitekey={process.env.GATSBY_CAPTCHA_SITE_KEY}
+      onLoaded={this.captchaOnLoad}
+      onResolved={this.captchaVerify}
+    />
+    */
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={styles.form} onSubmit={this.handleSubmit}>
 
         <div className="row"><div className="col-xs-12">
-          <label className="sr-only" for="name">Name</label>
+          <label className="sr-only" htmlFor="name">Name</label>
           <input
             className={styles.input}
             type="text"
@@ -146,7 +146,7 @@ class Contact extends React.PureComponent {
           />
         </div></div>
         <div className="row"><div className="col-xs-12">
-          <label className="sr-only" for="id">Email address</label>
+          <label className="sr-only" htmlFor="id">Email address</label>
           <input
             className={styles.input}
             type="email"
@@ -159,7 +159,7 @@ class Contact extends React.PureComponent {
           />
         </div></div>
         <div className="row"><div className="col-xs-12">
-          <label className="sr-only" for="message">Your message</label>
+          <label className="sr-only" htmlFor="message">Your message</label>
           <textarea
             className={styles.textarea}
             id="message"
@@ -171,24 +171,16 @@ class Contact extends React.PureComponent {
             onChange={this.handleChange}
           ></textarea>
         </div></div>
-        <div className="row">
-          <div className="col-xs-8"><div className={styles.test} style={{ textAlign: 'right' }}>What is {robotTest}?</div></div>
-          <div className="col-xs-4">
-            <label className="sr-only" for="bot">Your answer</label>
-            <input
-              className={styles.input}
-              id="bot"
-              type="number"
-              name="bot"
-              tabIndex="4"
-              value={this.state.bot}
-              onChange={this.handleChange}
-            />
+
+          <div className="row">
+            <div className="col-xs-12">
+
+            </div>
           </div>
-        </div>
+
         <div className="row">
           <div className="col-xs-12">
-            <button type="submit" className={styles.submit} disabled={!this.state.formValid} type="submit" tabIndex="5">
+            <button type="submit" className={styles.submit} disabled={!this.state.formValid} type="submit" tabIndex="6">
               {submitMessage}
             </button>
           </div>

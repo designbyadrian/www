@@ -7,6 +7,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Design by Adrian',
+    siteUrl: 'https://www.designbyadrian.com',
   },
   plugins: [
     'gatsby-plugin-react-next',
@@ -39,6 +40,13 @@ module.exports = {
       options: {
         plugins: ["gatsby-remark-component"]
       }
-    }
+    },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+      }
+    },
+    "gatsby-plugin-sitemap"
   ],
 };
