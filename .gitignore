@@ -5,6 +5,5 @@ public/
 .DS_Store
 
 yarn-error.log
-/.npmrc
 /size-analyzer.txt
 .env.*
