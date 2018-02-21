@@ -87,9 +87,10 @@ class Contact extends React.PureComponent {
         className={styles.form}
         name="contact"
         action="thank-you"
-        netlify-honeypot="zip"
-        netlify
+        data-netlify-honeypot="zip"
+        data-netlify="true"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <div className="row"><div className="col-xs-12">
           <label className="sr-only" htmlFor="name">Name</label>
           <input
