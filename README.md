@@ -36,6 +36,4 @@ GATSBY_CAPTCHA_SITE_KEY=
 
 2) `$ gatsby build`
 
-3) Docker push
-
-4) `$ docker run --rm myproject/website`
+3) Push it good 👊
