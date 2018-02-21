@@ -21,9 +21,11 @@ import faGem from '@fortawesome/fontawesome-pro-solid/faGem'
 import faGlassMartini from '@fortawesome/fontawesome-pro-solid/faGlassMartini'
 import faGlobe from '@fortawesome/fontawesome-pro-solid/faGlobe'
 import faHandPointer from '@fortawesome/fontawesome-pro-solid/faHandPointer'
+import faHandPointLeft from '@fortawesome/fontawesome-pro-solid/faHandPointLeft'
 import faHandPointRight from '@fortawesome/fontawesome-pro-solid/faHandPointRight'
 import faHeart from '@fortawesome/fontawesome-pro-solid/faHeart'
 import faLink from '@fortawesome/fontawesome-pro-solid/faLink'
+import faMeh from '@fortawesome/fontawesome-pro-solid/faMeh'
 import faMoneyBillAlt from '@fortawesome/fontawesome-pro-solid/faMoneyBillAlt'
 import faPaperPlane from '@fortawesome/fontawesome-pro-solid/faPaperPlane'
 import faPlane from '@fortawesome/fontawesome-pro-solid/faPlane'
@@ -51,9 +53,11 @@ fontawesome.library.add(
   faGlassMartini,
   faGlobe,
   faHandPointer,
+  faHandPointLeft,
   faHandPointRight,
   faHeart,
   faLink,
+  faMeh,
   faMoneyBillAlt,
   faPaperPlane,
   faPlane,

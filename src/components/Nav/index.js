@@ -25,6 +25,14 @@ const Nav = props => {
         }
       </nav>
     )
+  } else if (props.links){
+    nav = (
+      <nav className={styles.nav}>
+        {props.tags.map(tag =>
+          <Link to={`/tag/${tag.slug}`} className={styles.tag} key={tag.slug}>{tag.name}</Link>
+        )}
+      </nav>
+    );
   } else {
     nav = (
       <nav className={styles.nav}>
@@ -42,6 +50,7 @@ Nav.propTypes = {
   tags: PropTypes.array,
   onSelect: PropTypes.func,
   selectedTags: PropTypes.object,
+  links: PropTypes.bool,
 }
 
 export default Nav

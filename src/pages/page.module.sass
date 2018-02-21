@@ -1,0 +1,27 @@
+@import '../styles/colours'
+@import '../styles/typography'
+
+.container
+  padding-top: 2em
+  color: $purple
+  text-align: center
+
+.p
+  color: $white
+
+.button
+  padding: map-get($spacers, 2) $spacer
+  border-radius: 2px
+  background-color: $purple
+  color: $white
+  font-family: $font-family-sans-serif
+  font-size: 1em
+
+.heart
+  animation: throb 1.5s infinite forwards
+
+@keyframes throb
+  0%, 60%, 80%, 100%
+    transform: scale(1)
+  70%, 90%
+    transform: scale(1.1)
