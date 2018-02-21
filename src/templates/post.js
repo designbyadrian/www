@@ -79,7 +79,7 @@ export default (props) => {
         transitionEnter={false}
         transitionLeave={false}
       >
-        <div key={post.slug} className={`${styles.post}`}>
+        <div key={post.slug} className={styles.post}>
           {post.headerImage &&
             <HeaderImage
               edge2edge={edge2edge}

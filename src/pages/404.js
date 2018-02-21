@@ -10,8 +10,6 @@ import styles from './page.module.sass'
 export default ({ data }) => {
   const tags = data.allContentfulTag.edges.map(({ node }) => node);
 
-  console.log(tags);
-
   return (
     <span>
       <Helmet
