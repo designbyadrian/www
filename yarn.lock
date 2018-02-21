@@ -7120,14 +7120,6 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
-react-google-invisible-recaptcha@^0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/react-google-invisible-recaptcha/-/react-google-invisible-recaptcha-0.2.6.tgz#86ad16e50910a332075a9bd28886ec4f7ae336ec"
-  dependencies:
-    prop-types "^15.6.0"
-    react "^16.0.0"
-    uuid "^3.1.0"
-
 react-helmet@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.2.0.tgz#a81811df21313a6d55c5f058c4aeba5d6f3d97a7"

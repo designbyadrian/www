@@ -17,6 +17,9 @@
     border-color: $meat-brown
     outline: 0
 
+.hidden
+  display: none
+
 .textarea
   width: 100%
   padding: map-get($spacers, 2) 0
@@ -63,9 +66,6 @@
     &:not(:hover)
       animation: pulse 1.4s infinite forwards
 
-.bounceHeart
-  animation: bounce 1.5s 1 forwards
-
 @keyframes pulse
   0%, 100%
     border-color: lighten($purple, 20%)
@@ -74,17 +74,3 @@
   50%
     border-color: $meat-brown
     color: $white
-
-@keyframes bounce
-  0%,
-  20%,
-  50%,
-  80%,
-  100%
-    transform: translateY(0)
-
-  40%
-    transform: translateY(-50%)
-
-  60%
-    transform: translateY(-20%)
