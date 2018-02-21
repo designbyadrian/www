@@ -7,3 +7,4 @@ public/
 yarn-error.log
 /.npmrc
 /size-analyzer.txt
+.env.*
