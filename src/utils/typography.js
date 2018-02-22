@@ -30,6 +30,7 @@ import faMeh from '@fortawesome/fontawesome-pro-solid/faMeh'
 import faMoneyBillAlt from '@fortawesome/fontawesome-pro-solid/faMoneyBillAlt'
 import faPaperPlane from '@fortawesome/fontawesome-pro-solid/faPaperPlane'
 import faPlane from '@fortawesome/fontawesome-pro-solid/faPlane'
+import faSearchPlus from '@fortawesome/fontawesome-pro-solid/faSearchPlus'
 import faSpinner from '@fortawesome/fontawesome-pro-solid/faSpinner'
 import faTimes from '@fortawesome/fontawesome-pro-solid/faTimes'
 import faQuoteLeft from '@fortawesome/fontawesome-pro-solid/faQuoteLeft'
@@ -64,6 +65,7 @@ fontawesome.library.add(
   faMoneyBillAlt,
   faPaperPlane,
   faPlane,
+  faSearchPlus,
   faSpinner,
   faTimes,
   faQuoteLeft,

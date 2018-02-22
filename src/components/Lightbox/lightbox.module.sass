@@ -1,0 +1,66 @@
+@import '../../styles/grid'
+@import '../../styles/typography'
+
+
+.lightbox
+  display: flex
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  justify-content: center
+  align-items: center
+  padding: .5rem
+  background-color: rgba(white, .9)
+  text-align: center
+  z-index: 10
+
+  +breakpoint(map-get($grid-breakpoints, sm))
+    padding: map-get($spacers, 3)
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    padding: map-get($spacers, 4)
+
+  +breakpoint(map-get($grid-breakpoints, lg))
+    padding: map-get($spacers, 5)
+
+
+.appear
+  opacity: .01
+
+.appear.appearActive
+  transition: opacity 300ms ease-out
+  opacity: 1
+
+.leave
+  opacity: 1
+
+.leave.leaveActive
+  transition: opacity 300ms ease-in
+  opacity: .01
+
+.imageWrapper
+  flex-grow: 1
+  max-width: 100%
+  max-height: 100%
+
+.image
+  width: auto
+  max-width: 100%
+  height: auto
+  max-height: 100%
+  box-shadow: 0 10px 50px rgba(black, .4)
+
+
+.closeButton
+  position: absolute
+  top: 1rem
+  right: 1rem
+  border: 0
+  background: none
+  color: $purple
+  cursor: pointer
+
+  &:focus
+    outline: 0
