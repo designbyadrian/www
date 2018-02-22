@@ -4,17 +4,20 @@
 
 .nav
   display: flex
+  flex-wrap: wrap
   justify-content: center
-  margin: $spacer auto
+  margin: $spacer auto map-get($spacers, 2)
 
 .navLeft
   composes: nav
   justify-content: flex-start
 
+
 .button
   display: inline-block
   position: relative
   margin-right: map-get($spacers, 2)
+  margin-bottom: map-get($spacers, 2)
   padding: 2px 7px
   transition: background-color 200ms linear
   border: 0
