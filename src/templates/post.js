@@ -130,12 +130,7 @@ export const query = graphql`
       headerImage {
         description
         sizes(maxWidth: 1122) {
-          sizes
-          src
-          srcSet
-        }
-        resize(width: 60, quality: 50) {
-          src
+          ...GatsbyContentfulSizes
         }
       }
       edgeToEdgeHeaderImage
@@ -148,8 +143,7 @@ export const query = graphql`
         title
         description
         sizes (maxWidth: 1122) {
-          src
-          srcSet
+          ...GatsbyContentfulSizes
         }
       }
     }

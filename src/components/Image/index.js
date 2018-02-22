@@ -4,6 +4,7 @@
  */
 
 import React from 'react'
+import Img from 'gatsby-image'
 
 import styles from './image.module.sass'
 
@@ -16,9 +17,8 @@ const Image = props => {
     if(img.title === props.title) {
       image = (
         <figure className={styles.figure}>
-          <img
-            src={img.sizes.src}
-            srcSet={img.sizes.srcSet}
+          <Img
+            sizes={img.sizes}
             alt={img.description}
           />
         {!hideCaption &&

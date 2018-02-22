@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 import styles from './card.module.sass'
 
@@ -9,10 +10,9 @@ const Card = post => (
   <Link to={`/${post.slug}`}>
     <div className={styles.card}>
       {post.headerThumbnail &&
-        <img
+        <Img
           alt={post.headerThumbnail.description || post.excerpt.excerpt}
-          src={post.headerThumbnail.resolutions.src}
-          srcSet={post.headerThumbnail.resolutions.srcSet}
+          sizes={post.headerThumbnail.sizes}
         />
       }
       <h2 className={styles.cardTitle}>{post.title}</h2>

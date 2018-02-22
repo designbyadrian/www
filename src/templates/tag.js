@@ -47,9 +47,8 @@ export const query = graphql`
         slug
         headerThumbnail {
           description
-          resolutions(width: 400, height: 400) {
-            src
-            srcSet
+          sizes(maxWidth: 522) {
+            ...GatsbyContentfulSizes
           }
         }
         tags {
