@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from 'react-helmet'
 import rehypeReact from "rehype-react";
 import Img from 'react-image'
+import Link from 'gatsby-link'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -9,7 +10,7 @@ import Feature from '../components/Feature'
 import HeaderImage from '../components/HeaderImage'
 import Image from '../components/Image'
 import KeyFeatures from '../components/KeyFeatures'
-import Link from '../components/Link'
+import CustomLink from '../components/Link'
 import Quote from '../components/Quote'
 import Tags from '../components/Tags'
 
@@ -37,7 +38,7 @@ export default (props) => {
       'font-awesome': FontAwesomeIcon,
       'custom-image': props => <Image {...props} images={post.images} />,
       'key-features': KeyFeatures,
-      'link': Link,
+      'link': CustomLink,
       'years-since': YearsSince,
     }
   }).Compiler;
@@ -80,6 +81,13 @@ export default (props) => {
         transitionLeave={false}
       >
         <div key={post.slug} className={styles.post}>
+          <Link to="/" className={styles.homeButton}>
+            <span className="fa-layers fa-fw">
+              <FontAwesomeIcon icon="circle" color="#6e8898"/>
+              <FontAwesomeIcon className={styles.homeButtonBg} icon="circle"/>
+              <FontAwesomeIcon icon={['fas', 'times']} color="white" transform="shrink-2" />
+            </span>
+          </Link>
           {post.headerImage &&
             <HeaderImage
               edge2edge={edge2edge}

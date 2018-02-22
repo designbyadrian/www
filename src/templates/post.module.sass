@@ -1,15 +1,36 @@
-@import '~breakpoint-sass/stylesheets/breakpoint'
-
 @import '../styles/colours'
 @import '../styles/grid'
 @import '../styles/typography'
 
 
+.homeButton
+  position: absolute
+  top: 0
+  left: 0
+  transform: translate(-20%, -50%)
+  font-size: 36px
+  line-height: 1em
+  z-index: 1
+
+  +breakpoint(map-get($grid-breakpoints, sm))
+    transform: translate(-50%, -50%)
+    font-size: 42px
+
+  +breakpoint(map-get($grid-breakpoints, md))
+    font-size: 48px
+
+.homeButtonBg
+  transition: transform 200ms ease-in-out
+  transform: scale(0)
+
+  .homeButton:hover &
+    transform: scale(1)
+
 .post
+  position: relative
   margin-top: $spacer
   background-color: $white
   box-shadow: 0 2px 2px darken($body-bg, 10%)
-
 
 .postAppear
   transform: translateY(100%)

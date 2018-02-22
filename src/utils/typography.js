@@ -16,6 +16,7 @@ import faTwitterSquare from '@fortawesome/fontawesome-free-brands/faTwitterSquar
 // Solids
 import faBeer from '@fortawesome/fontawesome-pro-solid/faBeer'
 import faCalendar from '@fortawesome/fontawesome-pro-solid/faCalendar'
+import faCircle from '@fortawesome/fontawesome-pro-solid/faCircle'
 import faGamepad from '@fortawesome/fontawesome-pro-solid/faGamepad'
 import faGem from '@fortawesome/fontawesome-pro-solid/faGem'
 import faGlassMartini from '@fortawesome/fontawesome-pro-solid/faGlassMartini'
@@ -30,6 +31,7 @@ import faMoneyBillAlt from '@fortawesome/fontawesome-pro-solid/faMoneyBillAlt'
 import faPaperPlane from '@fortawesome/fontawesome-pro-solid/faPaperPlane'
 import faPlane from '@fortawesome/fontawesome-pro-solid/faPlane'
 import faSpinner from '@fortawesome/fontawesome-pro-solid/faSpinner'
+import faTimes from '@fortawesome/fontawesome-pro-solid/faTimes'
 import faQuoteLeft from '@fortawesome/fontawesome-pro-solid/faQuoteLeft'
 import faQuoteRight from '@fortawesome/fontawesome-pro-solid/faQuoteRight'
 
@@ -48,6 +50,7 @@ fontawesome.library.add(
   faTwitterSquare,
   faBeer,
   faCalendar,
+  faCircle,
   faGamepad,
   faGem,
   faGlassMartini,
@@ -62,6 +65,7 @@ fontawesome.library.add(
   faPaperPlane,
   faPlane,
   faSpinner,
+  faTimes,
   faQuoteLeft,
   faQuoteRight,
   faCreditCard,
@@ -113,7 +117,7 @@ const typography = new Typography({
     h4: {
       'font-size': rhythm(1.2),
       'line-height': rhythm(1.5 / 1.2)
-    }
+    },
   }),
 });
 
