@@ -1,24 +1,39 @@
+@import '../../styles/grid'
 @import '../../styles/colours'
 @import '../../styles/typography'
 
+
 .features
-  margin-left: -.5em
   margin-right: -.5em
+  margin-left: -.5em
 
   ul
-    width: 100%
-    align-content: stretch
     display: flex
     flex-wrap: wrap
-    list-style: none
-    padding: 0
+    align-content: stretch
+    width: 100%
     margin: 0
+    padding: 0 .5rem .5rem
+    list-style: none
+
+    +breakpoint(map-get($grid-breakpoints, sm))
+      padding: 0
 
   li
     flex-grow: 1
-    font-family: $font-family-sans-serif
-    text-align: center
-    background-color: $gray-light
+    min-width: 100%
+    padding: map-get($spacers, 1)
     border-radius: 2px
-    margin: 0.5em
+    background-color: $gray-light
+    font-family: $font-family-sans-serif
     font-weight: bold
+    line-height: 1em
+    text-align: center
+
+
+    +breakpoint(map-get($grid-breakpoints, sm))
+      min-width: 20%
+      margin: 0 .5em .5em
+
+    +breakpoint(map-get($grid-breakpoints, lg))
+      max-width: 50%
