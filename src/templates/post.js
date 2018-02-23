@@ -47,7 +47,7 @@ class Post extends React.PureComponent {
   render() {
     const props = this.props;
     const post = props.data.contentfulPost;
-    const tagString = post.tags ? post.tags.map(tag => tag.name).join(", ") : '';
+    let tagString = post.tags ? post.tags.map(tag => tag.name).join(", ") : '';
     const hasHeaderImage = post.headerImage !== null;
     const edge2edge = post.edgeToEdgeHeaderImage;
     const renderAst = new rehypeReact({
@@ -64,6 +64,8 @@ class Post extends React.PureComponent {
     }).Compiler;
 
     props.setTheme(post.theme);
+
+    tagString = `${post.metaKeywords}, ${tagString}`;
 
     const meta = [
       { name: 'description', content: post.excerpt.excerpt },
@@ -141,6 +143,7 @@ export const query = graphql`
       title
       slug
       theme
+      metaKeywords,
       excerpt {
         excerpt
       }
