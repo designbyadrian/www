@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import Contact from '../ContactForm'
+import Years from '../Years'
 
 import styles from './footer.module.sass'
 
@@ -12,7 +13,7 @@ const Footer = () => (
       <div className="row">
         <div className={`col-xs-12 col-sm-6 col-md-4 ${styles.colAbout}`}>
           <h4>About</h4>
-          <p>Web designer and developer with 12 years of experience. With past work in graphics and interaction design, and studies in computer science and human-computer interaction (HCI), I am Designer Slash Developer.</p>
+          <p>My name is <span className="author">Adrian von Gegerfelt</span>, and I'm a web designer and developer with <Years since="2006" /> years of experience. With past work in graphics and interaction design, and studies in computer science and human-computer interaction (HCI), I am Designer Slash Developer.</p>
           <p><Link to="/about-me" className={styles.bounceHand}>Read more <FontAwesomeIcon icon={['fas', 'hand-point-right']} /></Link></p>
         </div>
         <div className={`col-xs-12 col-md-4 ${styles.colLinks}`}>

@@ -13,17 +13,9 @@ import KeyFeatures from '../components/KeyFeatures'
 import Lightbox from '../components/Lightbox'
 import Quote from '../components/Quote'
 import Tags from '../components/Tags'
+import Years from '../components/Years'
 
 import styles from './post.module.sass'
-
-const YearsSince = props => {
-  const date = new Date();
-  const years = date.getFullYear() - parseInt(props.since, 10);
-
-  return (
-    <span>{years}</span>
-  )
-}
 
 class Post extends React.PureComponent {
 
@@ -59,7 +51,7 @@ class Post extends React.PureComponent {
         'custom-image': props => <Image {...props} onZoom={this.onZoom} images={post.images} />,
         'key-features': KeyFeatures,
         'link': CustomLink,
-        'years-since': YearsSince,
+        'years-since': Years,
       }
     }).Compiler;
 
