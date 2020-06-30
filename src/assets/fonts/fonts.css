@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Dense";
+  font-style: normal;
+  font-weight: normal;
+  src: url("dense.eot") format("eot"), url("dense.ttf") format("ttf"),
+    url("dense.woff") format("woff"), url("dense.woff2") format("woff2");
+}

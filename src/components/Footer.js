@@ -3,15 +3,14 @@ import tw from "twin.macro"
 
 import Wrapper from "@src/components/PageWrapper"
 
-const Container = tw.header`
-
+const Container = tw.footer`
 `
 
-const Header = () => {
+const Footer = () => {
   return (
     <Wrapper>
-      <Container></Container>
+      <footer>© {new Date().getFullYear()}</footer>
     </Wrapper>
   )
 }
-export default Header
+export default Footer
