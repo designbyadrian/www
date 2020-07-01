@@ -18,7 +18,6 @@ const globalStyles = css`
 
   h1 {
     ${tw`w-full font-display text-4xl md:text-5xl lg:text-6xl leading-none`}
-    margin-top: 1em;
   }
 
   h2 {

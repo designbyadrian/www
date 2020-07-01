@@ -7,7 +7,17 @@ import SEO from "@components/SEO"
 
 const wpm = 265
 
-const HeadingBlock = styled.div`
+const Page = tw.main`
+  bg-white
+  mt-6
+  px-12
+  pt-10
+  pb-12
+  rounded-sm
+  shadow-sm
+`
+
+const Header = styled.div`
   margin-bottom: 2rem;
 `
 
@@ -30,12 +40,15 @@ const ArticlePage = ({ pageContext, ...rest1 }) => {
     <Layout>
       <SEO title={title} description={excerpt} />
       <Wrapper>
-        <HeadingBlock>
-          <h1>{title}</h1>
-          <Meta>
-            {createdAt} • {timeToRead} min read
-          </Meta>
-        </HeadingBlock>
+        <Page>
+          <Header>
+            <h1>{title}</h1>
+            <Meta>
+              {createdAt} • {timeToRead} min read
+            </Meta>
+          </Header>
+          <section dangerouslySetInnerHTML={{ __html: html }} />
+        </Page>
       </Wrapper>
     </Layout>
   )

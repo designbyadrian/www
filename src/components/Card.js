@@ -5,13 +5,9 @@ import tw, { styled } from "twin.macro"
 
 const Container = tw(Link)`
   w-full
-  md:w-1/3
-  lg:w-1/4
-  xl:w-1/6
+  h-full
   bg-white
   dark:bg-purple-900
-  mx-3
-  mt-6
   px-6
   py-4
   rounded-lg
@@ -24,6 +20,10 @@ const Container = tw(Link)`
   ease-in-out
 `
 
+const Header = styled.div`
+  min-height: 6rem;
+`
+
 const Title = styled.h2`
   overflow: hidden;
   text-overflow: ellipsis;
@@ -34,14 +34,16 @@ const Title = styled.h2`
   ${tw`dark:text-gray-400`}
 `
 
-const Date = tw.small`text-gray-500`
+const Date = tw.small`block text-gray-500`
 
 const Description = tw.p`flex-grow mt-3 text-gray-600 dark:text-gray-300`
 
 const Card = ({ createdAt, excerpt, slug, title }) => (
   <Container to={`/${slug}`}>
-    <Title>{title}</Title>
-    <Date>{createdAt}</Date>
+    <Header>
+      <Title>{title}</Title>
+      <Date>{createdAt}</Date>
+    </Header>
     <Description>{excerpt}</Description>
   </Container>
 )
