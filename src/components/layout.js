@@ -4,8 +4,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
 import tw from "twin.macro"
 
-import Footer from "@components/Footer"
-import Header from "@components/Header"
+import Footer from "components/Footer"
+import Header from "components/Header"
 
 const Page = tw.div`px-3 flex flex-col min-h-screen`
 

@@ -2,7 +2,7 @@ import React from "react"
 import tw from "twin.macro"
 import PropTypes from "prop-types"
 
-import Card from "@components/Card"
+import Card from "components/Card"
 
 const Container = tw.div`flex flex-row flex-wrap`
 

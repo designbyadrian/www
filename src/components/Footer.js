@@ -1,7 +1,7 @@
 import React from "react"
 import tw from "twin.macro"
 
-import Wrapper from "@src/components/PageWrapper"
+import Wrapper from "src/components/PageWrapper"
 
 const Container = tw.footer`
 `

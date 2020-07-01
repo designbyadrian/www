@@ -1,9 +1,9 @@
 import React from "react"
 import tw, { styled } from "twin.macro"
 
-import Layout from "@components/Layout"
-import Wrapper from "@components/PageWrapper"
-import SEO from "@components/SEO"
+import Layout from "components/Layout"
+import Wrapper from "components/PageWrapper"
+import SEO from "components/SEO"
 
 const wpm = 265
 
