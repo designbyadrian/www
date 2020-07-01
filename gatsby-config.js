@@ -1,3 +1,5 @@
+const path = require("path")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -21,7 +23,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        path: path.resolve(__dirname, "src/assets/images"),
       },
     },
     `gatsby-plugin-emotion`,
@@ -33,7 +35,7 @@ module.exports = {
       options: {
         custom: {
           families: ["Dense"],
-          urls: [`${__dirname}/src/assets/fonts/fonts.css`],
+          urls: [path.resolve(__dirname, "src/assets/fonts/fonts.css")],
         },
         google: {
           families: ["Lato:light,regular,bold"],
@@ -71,11 +73,11 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@src": "src",
-          "@components": "src/components",
-          "@pages": "src/pages",
-          "@assets": "src/assets",
-          "@templates": "src/templates",
+          "@src": path.resolve(__dirname, "src"),
+          "@components": path.resolve(__dirname, "src/components"),
+          "@pages": path.resolve(__dirname, "src/pages"),
+          "@assets": path.resolve(__dirname, "src/assets"),
+          "@templates": path.resolve(__dirname, "src/templates"),
         },
         extensions: ["js"],
       },
