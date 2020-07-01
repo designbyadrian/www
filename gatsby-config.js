@@ -33,10 +33,6 @@ module.exports = {
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
-        custom: {
-          families: ["Dense"],
-          urls: [path.resolve(__dirname, "src/assets/fonts/fonts.css")],
-        },
         google: {
           families: ["Lato:light,regular,bold"],
         },

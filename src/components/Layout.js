@@ -7,9 +7,13 @@ import tw from "twin.macro"
 import Footer from "components/Footer"
 import Header from "components/Header"
 
+import * as font from "assets/fonts"
+
 const Page = tw.div`px-3 flex flex-col min-h-screen`
 
 const Main = tw.main`flex-grow`
+
+console.log("font", font)
 
 const globalStyles = css`
   body {
@@ -22,6 +26,18 @@ const globalStyles = css`
 
   h2 {
     ${tw`w-full font-display text-4xl leading-none`}
+  }
+
+  @font-face {
+    font-family: "Dense";
+    font-style: normal;
+    font-weight: normal;
+    src: url('${font.Dense_eot}') format("eot"), url('${
+  font.Dense_ttf
+}') format("ttf"),
+      url('${font.Dense_woff}') format("woff"), url('${
+  font.Dense_woff2
+}') format("woff2");
   }
 `
 
