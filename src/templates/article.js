@@ -9,8 +9,12 @@ const wpm = 265
 
 const Page = tw.main`
   bg-white
+  dark:bg-purple-800
+  max-w-5xl
   mt-6
-  px-12
+  mx-auto
+  px-3
+  md:px-12
   pt-10
   pb-12
   rounded-sm

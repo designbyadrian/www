@@ -30,8 +30,6 @@ const Title = styled.h2`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
-  ${tw`dark:text-gray-400`}
 `
 
 const Date = tw.small`block text-gray-500`
