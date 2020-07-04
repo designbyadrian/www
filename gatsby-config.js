@@ -1,4 +1,5 @@
 const path = require("path")
+const isDev = require("isdev")
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -6,9 +7,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Design by Adrian`,
-    description: `Designer Slash Developer`,
-    author: `Adrian von Gegerfelt`,
+    title: "Design by Adrian",
+    description: "Designer Slash Developer",
+    author: "Adrian von Gegerfelt",
     keywords: [
       "web development",
       "live events",
@@ -18,18 +19,23 @@ module.exports = {
     ],
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-react-helmet",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
+        name: "images",
         path: path.resolve(__dirname, "src/assets/images"),
       },
     },
-    `gatsby-plugin-emotion`,
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    "gatsby-plugin-emotion",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-component"],
+      },
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
@@ -39,7 +45,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: "gatsby-source-contentful",
       options: {
         host:
           process.env.NODE_ENV === "development"
@@ -47,14 +53,14 @@ module.exports = {
             : "cdn.contentful.com",
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
+        downloadLocal: isDev,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // "gatsby-plugin-offline",
     {
-      resolve: `gatsby-alias-imports`,
+      resolve: "gatsby-alias-imports",
       options: {
         aliases: {
           src: "src",
@@ -62,6 +68,7 @@ module.exports = {
           pages: "src/pages",
           assets: "src/assets",
           templates: "src/templates",
+          utils: "src/utils",
         },
         extensions: ["js"],
       },

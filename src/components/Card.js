@@ -2,22 +2,29 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { styled } from "twin.macro"
+import Img from "gatsby-image"
 
 const Container = tw(Link)`
   w-full
   h-full
   bg-white
   dark:bg-purple-900
-  px-6
-  py-4
   rounded-lg
   shadow-xl
   flex
   flex-col
   hover:shadow-lg
-  transition-shadow
+  hover:transform
+  hover:translate-y-1
+  transition
   duration-200
   ease-in-out
+  overflow-hidden
+`
+
+const Content = tw.div`
+  px-5
+  py-4
 `
 
 const Header = styled.div`
@@ -36,13 +43,17 @@ const Date = tw.small`block text-gray-500`
 
 const Description = tw.p`flex-grow mt-3 text-gray-600 dark:text-gray-300`
 
-const Card = ({ createdAt, excerpt, slug, title }) => (
+const Card = ({ createdAt, excerpt, slug, thumbnail, timestamp, title }) => (
   <Container to={`/${slug}`}>
-    <Header>
-      <Title>{title}</Title>
-      <Date>{createdAt}</Date>
-    </Header>
-    <Description>{excerpt}</Description>
+    {console.log("thumb", thumbnail?.fluid)}
+    {thumbnail && <Img fluid={thumbnail.fluid} title={thumbnail.title} />}
+    <Content>
+      <Header>
+        <Title>{title}</Title>
+        <Date>{timestamp || createdAt}</Date>
+      </Header>
+      <Description>{excerpt}</Description>
+    </Content>
   </Container>
 )
 

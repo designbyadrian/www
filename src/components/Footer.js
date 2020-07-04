@@ -4,12 +4,13 @@ import tw from "twin.macro"
 import Wrapper from "src/components/PageWrapper"
 
 const Container = tw.footer`
+  mt-20
 `
 
 const Footer = () => {
   return (
     <Wrapper>
-      <footer>© {new Date().getFullYear()}</footer>
+      <Container>© {new Date().getFullYear()}</Container>
     </Wrapper>
   )
 }

@@ -14,7 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 body {
                   childMarkdownRemark {
-                    html
+                    htmlAst
                     wordCount {
                       words
                     }
@@ -24,11 +24,29 @@ exports.createPages = ({ graphql, actions }) => {
                 excerpt {
                   excerpt
                 }
+                slug
                 tags {
                   slug
                   title
                 }
-                slug
+                timestamp(formatString: "DD MMMM, YYYY")
+                hero {
+                  fluid(maxWidth: 1200) {
+                    src
+                    sizes
+                    srcSet
+                    srcSetWebp
+                    srcWebp
+                    aspectRatio
+                    base64
+                  }
+                  fixed(width: 1200) {
+                    height
+                    width
+                    src
+                  }
+                  title
+                }
                 title
               }
             }

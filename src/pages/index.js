@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allContentfulArticle {
+    allContentfulArticle(sort: { fields: [timestamp], order: DESC }) {
       edges {
         node {
           tags {
@@ -33,9 +33,16 @@ export const query = graphql`
           }
           title
           createdAt(formatString: "DD MMMM, YYYY")
+          timestamp(formatString: "DD MMMM, YYYY")
           slug
           excerpt {
             excerpt
+          }
+          thumbnail {
+            fluid(maxWidth: 600) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+            title
           }
         }
       }

@@ -7,6 +7,8 @@ import tw from "twin.macro"
 import Footer from "components/Footer"
 import Header from "components/Header"
 
+import "utils/fa"
+
 import * as font from "assets/fonts"
 
 const Page = tw.div`px-3 flex flex-col min-h-screen`
@@ -24,6 +26,18 @@ const globalStyles = css`
 
   h2 {
     ${tw`w-full font-display text-4xl leading-none uppercase text-gray-800 dark:text-gray-100`}
+  }
+
+  h3 {
+    ${tw`w-full mt-6 mb-3 pb-1 border-gray-300 border-b dark:border-purple-600 font-display text-3xl leading-none text-gray-600 dark:text-gray-500`}
+  }
+
+  h4 {
+    ${tw`w-full font-display text-3xl leading-none text-gray-600 dark:text-gray-500`}
+  }
+
+  p {
+    ${tw`my-6`}
   }
 
   @font-face {
