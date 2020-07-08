@@ -7,17 +7,17 @@ import tw from "twin.macro"
 import Footer from "components/Footer"
 import Header from "components/Header"
 
-import "utils/fa"
+import "src/utils/fontawesome"
 
 import * as font from "assets/fonts"
 
-const Page = tw.div`px-3 flex flex-col min-h-screen`
+const Page = tw.div`flex flex-col min-h-screen`
 
 const Main = tw.main`flex-grow`
 
 const globalStyles = css`
   body {
-    ${tw`font-sans text-gray-700 bg-gray-100 dark:text-gray-300 dark:bg-purple-800`};
+    ${tw`font-sans text-gray-700 bg-white dark:text-gray-300 dark:bg-purple-800`};
   }
 
   h1 {
@@ -25,11 +25,11 @@ const globalStyles = css`
   }
 
   h2 {
-    ${tw`w-full font-display text-4xl leading-none uppercase text-gray-800 dark:text-gray-100`}
+    ${tw`w-full font-display text-4xl leading-none uppercase text-gray-700 dark:text-gray-100`}
   }
 
   h3 {
-    ${tw`w-full mt-6 mb-3 pb-1 border-gray-300 border-b dark:border-purple-600 font-display text-3xl leading-none text-gray-600 dark:text-gray-500`}
+    ${tw`w-full mt-10 mb-3 font-display text-5xl leading-none text-gray-600 dark:text-gray-500`}
   }
 
   h4 {

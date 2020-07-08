@@ -43,6 +43,7 @@ export const query = graphql`
               ...GatsbyContentfulFluid_withWebp
             }
             title
+            description
           }
         }
       }

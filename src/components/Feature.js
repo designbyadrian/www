@@ -17,7 +17,7 @@ const Container = tw.div`
 
 const Icon = tw.div`
   text-gray-600
-  dark:text-purple-500
+  dark:text-gray-600
   text-center
   my-3
 `

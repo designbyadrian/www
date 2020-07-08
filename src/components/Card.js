@@ -8,7 +8,7 @@ const Container = tw(Link)`
   w-full
   h-full
   bg-white
-  dark:bg-purple-900
+  dark:bg-purple-700
   rounded-lg
   shadow-xl
   flex
@@ -41,12 +41,17 @@ const Title = styled.h2`
 
 const Date = tw.small`block text-gray-500`
 
-const Description = tw.p`flex-grow mt-3 text-gray-600 dark:text-gray-300`
+const Description = tw.p`flex-grow mt-3 sm:text-base md:text-sm text-gray-600 dark:text-gray-300`
 
 const Card = ({ createdAt, excerpt, slug, thumbnail, timestamp, title }) => (
   <Container to={`/${slug}`}>
     {console.log("thumb", thumbnail?.fluid)}
-    {thumbnail && <Img fluid={thumbnail.fluid} title={thumbnail.title} />}
+    {thumbnail && (
+      <Img
+        fluid={thumbnail.fluid}
+        title={`${thumbnail.title} – ${thumbnail.description}`}
+      />
+    )}
     <Content>
       <Header>
         <Title>{title}</Title>

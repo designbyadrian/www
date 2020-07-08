@@ -4,6 +4,8 @@ import tw, { styled } from "twin.macro"
 import Img from "gatsby-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import ArticleFooter from "components/ArticleFooter"
+import Anchor from "components/Link"
 import Column from "components/Column"
 import Experience from "components/Experience"
 import Feature from "components/Feature"
@@ -22,6 +24,7 @@ const renderAst = new rehypeReact({
     experience: Experience,
     feature: Feature,
     "font-awesome": FontAwesomeIcon,
+    a: Anchor,
     row: Row,
   },
 }).Compiler
@@ -29,21 +32,18 @@ const renderAst = new rehypeReact({
 const wpm = 265
 
 const Article = tw.article`
-  bg-white
-  dark:bg-purple-800
-  max-w-5xl
+  max-w-3xl
   mt-6
   mx-auto
-  rounded-sm
-  shadow-2xl
   overflow-hidden
+  text-lg
+  md:text-xl
 `
 
 const Body = tw.section`
-  px-3
+  px-6
   pt-10
-  pb-12
-  md:px-12
+  md:px-0
 `
 
 const Header = styled.div`
@@ -72,22 +72,23 @@ const ArticlePage = ({ pageContext, ...rest1 }) => {
   return (
     <Layout>
       <SEO title={title} description={excerpt} image={hero.fixed} />
+      <Img fluid={hero.fluid} title={`${hero.title} – ${hero.description}`} />
       <Wrapper>
         <Article>
-          <Img fluid={hero.fluid} title={hero.title} />
           <Body>
             <Header>
               <h1>{title}</h1>
               <Meta>
                 {timestamp || createdAt} • {timeToRead} min read
               </Meta>
-              <Tags>
-                {tags.map(tag => (
-                  <Tag {...tag} key={tag.slug} />
-                ))}
-              </Tags>
             </Header>
             {renderAst(htmlAst)}
+            <ArticleFooter />
+            <Tags>
+              {tags.map(tag => (
+                <Tag {...tag} key={tag.slug} />
+              ))}
+            </Tags>
           </Body>
         </Article>
       </Wrapper>

@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 import Card from "components/Card"
 
-const Container = tw.div`flex flex-row flex-wrap`
+const Container = tw.div`lg:px-4 flex flex-row flex-wrap`
 
 const Column = tw.div`
   w-full
@@ -12,7 +12,7 @@ const Column = tw.div`
   md:w-1/2
   lg:w-1/3
   xl:w-1/5
-  px-3
+  px-6
   mt-6
 `
 

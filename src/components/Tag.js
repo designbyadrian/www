@@ -4,9 +4,7 @@ import tw, { styled } from "twin.macro"
 import { Link as GatsbyLink } from "gatsby"
 
 const Link = styled(GatsbyLink)`
-  ${tw`inline-block mr-3 mb-2 relative px-3 py-0 rounded-sm shadow-sm font-display bg-white hover:bg-purple-600 hover:text-white transition-colors duration-200`}
-
-  &::before,
+  ${tw`inline-block mr-3 mb-2 relative px-3 py-0 rounded-sm shadow-md font-display text-2xl text-white hover:bg-purple-400 bg-purple-600 dark:hover:bg-purple-500 transition-colors duration-200`}/* &::before,
   &::after {
     content: "";
     position: absolute;
@@ -26,7 +24,7 @@ const Link = styled(GatsbyLink)`
   &::after {
     bottom: 1px;
     transform: skew(5deg) rotate(5deg);
-  }
+  } */
 `
 
 const Tag = ({ slug, title }) => <Link to={`/tags/${slug}`}>{title}</Link>
