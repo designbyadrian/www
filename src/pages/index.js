@@ -7,11 +7,11 @@ import Stack from "components/Stack"
 
 const IndexPage = ({ data }) => {
   const {
-      allContentfulArticle: { edges },
+      allContentfulArticle: { nodes },
     } = data,
-    posts = edges.map(edge => ({
-      ...edge.node,
-      excerpt: edge.node.excerpt?.excerpt,
+    posts = nodes.map(post => ({
+      ...post,
+      excerpt: post.excerpt?.excerpt,
     }))
 
   return (
@@ -25,26 +25,24 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   {
     allContentfulArticle(sort: { fields: [timestamp], order: DESC }) {
-      edges {
-        node {
-          tags {
-            slug
-            title
+      nodes {
+        tags {
+          slug
+          title
+        }
+        title
+        createdAt(formatString: "DD MMMM, YYYY")
+        timestamp(formatString: "DD MMMM, YYYY")
+        slug
+        excerpt {
+          excerpt
+        }
+        thumbnail {
+          fluid(maxWidth: 600) {
+            ...GatsbyContentfulFluid_withWebp
           }
           title
-          createdAt(formatString: "DD MMMM, YYYY")
-          timestamp(formatString: "DD MMMM, YYYY")
-          slug
-          excerpt {
-            excerpt
-          }
-          thumbnail {
-            fluid(maxWidth: 600) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-            title
-            description
-          }
+          description
         }
       }
     }
