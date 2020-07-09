@@ -21,11 +21,11 @@ const globalStyles = css`
   }
 
   h1 {
-    ${tw`w-full font-display text-4xl md:text-5xl lg:text-6xl leading-none uppercase text-gray-800 dark:text-gray-100`}
+    ${tw`w-full font-display text-4xl md:text-5xl lg:text-6xl leading-none uppercase text-gray-800 dark:text-gray-400`}
   }
 
   h2 {
-    ${tw`w-full font-display text-4xl leading-none uppercase text-gray-700 dark:text-gray-100`}
+    ${tw`w-full font-display text-4xl leading-none uppercase text-gray-700 dark:text-gray-400`}
   }
 
   h3 {
