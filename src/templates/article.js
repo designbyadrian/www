@@ -61,7 +61,7 @@ const Meta = tw.small`block w-full text-gray-500`
 
 const Tags = tw.div`relative z-10 w-full mt-3 mb-2`
 
-const ArticlePage = ({ pageContext, ...rest1 }) => {
+const ArticlePage = ({ pageContext }) => {
   const {
       body: {
         childMarkdownRemark: { htmlAst, wordCount },
