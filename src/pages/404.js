@@ -5,12 +5,18 @@ import tw, { styled } from "twin.macro"
 
 import Layout from "components/Layout"
 import SEO from "components/SEO"
-import Wrapper from "components/PageWrapper"
 
 const sortFunc = (a, b) => b.article?.length || 0 - a.article?.length || 0
 
-const Page = styled(Wrapper)`
-  ${tw`mt-20 text-center dark:text-gray-600`}
+const Page = styled.div`
+  ${tw`w-full
+  md:w-11/12
+  lg:w-10/12
+  xl:w-9/12
+  mx-auto
+  mt-20
+  text-center
+  dark:text-gray-600`}
 
   h1 {
     ${tw`mt-4 mb-0`}

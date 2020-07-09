@@ -13,7 +13,6 @@ import Layout from "components/Layout"
 import Row from "components/Row"
 import SEO from "components/SEO"
 import Tag from "components/Tag"
-import Wrapper from "components/PageWrapper"
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-images-contentful/
 
@@ -30,6 +29,14 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const wpm = 265
+
+const Wrapper = tw.div`
+  w-full
+  md:w-11/12
+  lg:w-10/12
+  xl:w-9/12
+  mx-auto
+`
 
 const Article = tw.article`
   max-w-3xl

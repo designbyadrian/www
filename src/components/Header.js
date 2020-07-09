@@ -1,17 +1,7 @@
 import React from "react"
 import tw from "twin.macro"
 
-import Wrapper from "src/components/PageWrapper"
+import Wrapper from "components/Wrapper"
 
-const Container = tw.header`
-
-`
-
-const Header = () => {
-  return (
-    <Wrapper>
-      <Container></Container>
-    </Wrapper>
-  )
-}
+const Header = () => <Wrapper>Header</Wrapper>
 export default Header

@@ -1,7 +1,9 @@
 import React from "react"
 import tw from "twin.macro"
 
-const Wrapper = tw.footer`
+import Wrapper from "components/Wrapper"
+
+const Container = tw.footer`
   mt-10
   bg-purple-800
   text-gray-100
@@ -11,15 +13,15 @@ const Wrapper = tw.footer`
 
 const Body = tw.footer`
   py-10
-  px-6
-  lg:px-10
 `
 
 const Footer = () => {
   return (
-    <Wrapper>
-      <Body>© {new Date().getFullYear()}</Body>
-    </Wrapper>
+    <Container>
+      <Wrapper>
+        <Body>Copyright © {new Date().getFullYear()}</Body>
+      </Wrapper>
+    </Container>
   )
 }
 export default Footer
