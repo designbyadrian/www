@@ -1,75 +1,143 @@
 const Promise = require("bluebird")
 const path = require("path")
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  return new Promise((resolve, reject) => {
-    const article = path.resolve("./src/templates/article.js")
-    resolve(
-      graphql(`
-        {
-          allContentfulArticle {
-            edges {
-              node {
-                body {
-                  childMarkdownRemark {
-                    htmlAst
-                    wordCount {
-                      words
-                    }
-                  }
-                }
-                createdAt(formatString: "DD MMMM, YYYY")
-                excerpt {
-                  excerpt
-                }
-                slug
-                tags {
-                  slug
-                  title
-                }
-                timestamp(formatString: "DD MMMM, YYYY")
-                hero {
-                  fluid(maxWidth: 1200) {
-                    src
-                    sizes
-                    srcSet
-                    srcSetWebp
-                    srcWebp
-                    aspectRatio
-                    base64
-                  }
-                  fixed(width: 1200) {
-                    height
-                    width
-                    src
-                  }
-                  title
-                  description
-                }
-                title
+  const results = await graphql(`
+    {
+      allContentfulArticle {
+        nodes {
+          body {
+            childMarkdownRemark {
+              htmlAst
+              wordCount {
+                words
               }
             }
           }
+          createdAt(formatString: "DD MMMM, YYYY")
+          excerpt {
+            excerpt
+          }
+          slug
+          tags {
+            slug
+            title
+          }
+          timestamp(formatString: "DD MMMM, YYYY")
+          hero {
+            fluid(maxWidth: 1200) {
+              src
+              sizes
+              srcSet
+              srcSetWebp
+              srcWebp
+              aspectRatio
+              base64
+            }
+            fixed(width: 1200) {
+              height
+              width
+              src
+            }
+            title
+            description
+          }
+          title
         }
-      `).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+      }
+      allContentfulCategory {
+        nodes {
+          slug
+          title
+          article {
+            title
+            createdAt(formatString: "DD MMMM, YYYY")
+            timestamp(formatString: "DD MMMM, YYYY")
+            slug
+            excerpt {
+              excerpt
+            }
+            thumbnail {
+              fluid(maxWidth: 600) {
+                src
+                sizes
+                srcSet
+                srcSetWebp
+                srcWebp
+                aspectRatio
+                base64
+              }
+              title
+              description
+            }
+          }
         }
+      }
+      allContentfulTag {
+        nodes {
+          slug
+          title
+          article {
+            title
+            createdAt(formatString: "DD MMMM, YYYY")
+            timestamp(formatString: "DD MMMM, YYYY")
+            slug
+            excerpt {
+              excerpt
+            }
+            thumbnail {
+              fluid(maxWidth: 600) {
+                src
+                sizes
+                srcSet
+                srcSetWebp
+                srcWebp
+                aspectRatio
+                base64
+              }
+              title
+              description
+            }
+          }
+        }
+      }
+    }
+  `)
 
-        const posts = result.data.allContentfulArticle.edges
-        posts.forEach((post, index) => {
-          createPage({
-            path: `/${post.node.slug}/`,
-            component: article,
-            context: {
-              ...post.node,
-            },
-          })
-        })
-      })
-    )
+  console.log("results", results)
+
+  /** Articles */
+  results.data.allContentfulArticle.nodes.forEach(article => {
+    createPage({
+      path: `/${article.slug}/`,
+      component: path.resolve("./src/templates/article.js"),
+      context: {
+        ...article,
+      },
+    })
+  })
+
+  /** Tag pages */
+  results.data.allContentfulTag.nodes.forEach(tag => {
+    createPage({
+      path: `/tags/${tag.slug}/`,
+      component: path.resolve("./src/templates/tags.js"),
+      context: {
+        ...tag,
+      },
+    })
+  })
+
+  /** Category pages */
+  results.data.allContentfulCategory.nodes.forEach(category => {
+    createPage({
+      path: `/categories/${category.slug}/`,
+      component: path.resolve("./src/templates/tags.js"),
+      context: {
+        ...category,
+      },
+    })
   })
 }
