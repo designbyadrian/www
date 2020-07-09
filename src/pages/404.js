@@ -67,7 +67,9 @@ const NotFoundPage = ({ data, location }) => {
 
         <TagList>
           {categories.map(category => (
-            <Tag to={`/${category.slug}`}>{category.title}</Tag>
+            <Tag key={category.id} to={`/categories/${category.slug}`}>
+              {category.title}
+            </Tag>
           ))}
         </TagList>
 
@@ -75,7 +77,9 @@ const NotFoundPage = ({ data, location }) => {
 
         <TagList>
           {tags.map(tag => (
-            <Tag to={`/${tag.slug}`}>{tag.title}</Tag>
+            <Tag key={tag.id} to={`/tags/${tag.slug}`}>
+              {tag.title}
+            </Tag>
           ))}
         </TagList>
       </Page>
@@ -87,6 +91,7 @@ export const query = graphql`
   {
     allContentfulTag {
       nodes {
+        id
         slug
         article {
           id
@@ -96,6 +101,7 @@ export const query = graphql`
     }
     allContentfulCategory {
       nodes {
+        id
         title
         slug
         article {
