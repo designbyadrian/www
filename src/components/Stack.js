@@ -13,7 +13,7 @@ const Column = tw.div`
   lg:max-w-1/3
   xl:max-w-1/5
   px-3
-  mt-6
+  mb-10
 `
 
 const Stack = ({ items }) => (

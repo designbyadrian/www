@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
+import { StickyContainer } from "react-sticky"
 import tw from "twin.macro"
 
 import Footer from "components/Footer"
@@ -94,12 +95,14 @@ const globalStyles = css`
 `
 
 const Layout = ({ children }) => (
-  <Page>
-    <Global styles={globalStyles} />
-    <Header />
-    <Main>{children}</Main>
-    <Footer />
-  </Page>
+  <StickyContainer>
+    <Page>
+      <Global styles={globalStyles} />
+      <Header />
+      <Main>{children}</Main>
+      <Footer />
+    </Page>
+  </StickyContainer>
 )
 
 Layout.propTypes = {
