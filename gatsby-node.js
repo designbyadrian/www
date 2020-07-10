@@ -44,6 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             description
           }
+          heroMargins
           title
         }
       }
@@ -60,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
               excerpt
             }
             thumbnail {
-              fluid(maxWidth: 600) {
+              fluid(maxWidth: 600, quality: 30) {
                 src
                 sizes
                 srcSet
@@ -88,7 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
               excerpt
             }
             thumbnail {
-              fluid(maxWidth: 600) {
+              fluid(maxWidth: 600, quality: 30) {
                 src
                 sizes
                 srcSet
@@ -105,8 +106,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-
-  console.log("results", results)
 
   /** Articles */
   results.data.allContentfulArticle.nodes.forEach(article => {

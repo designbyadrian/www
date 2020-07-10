@@ -359,6 +359,10 @@ module.exports = {
       "5xl": "64rem",
       "6xl": "72rem",
       full: "100%",
+      "1/2": "50%",
+      "1/3": "33.333333%",
+      "1/4": "25%",
+      "1/5": "20%",
       ...breakpoints(theme("screens")),
     }),
     minHeight: {

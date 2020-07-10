@@ -6,24 +6,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import ArticleFooter from "components/ArticleFooter"
 import Anchor from "components/Link"
+import Block from "components/Block"
 import Column from "components/Column"
 import Experience from "components/Experience"
 import Feature from "components/Feature"
+import KeyFeature from "components/KeyFeature"
 import Layout from "components/Layout"
 import Row from "components/Row"
 import SEO from "components/SEO"
 import Tag from "components/Tag"
+import PageWrapper from "components/Wrapper"
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-images-contentful/
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
+    a: Anchor,
+    block: Block,
     column: Column,
     experience: Experience,
     feature: Feature,
     "font-awesome": FontAwesomeIcon,
-    a: Anchor,
+    "key-feature": KeyFeature,
     row: Row,
   },
 }).Compiler
@@ -42,7 +47,6 @@ const Article = tw.article`
   max-w-3xl
   mt-6
   mx-auto
-  overflow-hidden
   text-lg
   md:text-xl
 `
@@ -68,6 +72,7 @@ const ArticlePage = ({ pageContext }) => {
       },
       createdAt,
       excerpt: { excerpt },
+      heroMargins = false,
       hero,
       slug,
       tags,
@@ -75,11 +80,17 @@ const ArticlePage = ({ pageContext }) => {
       title,
     } = pageContext,
     timeToRead = Math.ceil(wordCount.words / wpm)
-
+  console.log("heroMargins?", heroMargins)
   return (
     <Layout>
       <SEO title={title} description={excerpt} image={hero.fixed} />
-      <Img fluid={hero.fluid} title={`${hero.title} – ${hero.description}`} />
+      {heroMargins ? (
+        <PageWrapper>
+          <Img fluid={hero.fluid} title={hero.title} alt={hero.description} />
+        </PageWrapper>
+      ) : (
+        <Img fluid={hero.fluid} title={hero.title} alt={hero.description} />
+      )}
       <Wrapper>
         <Article>
           <Body>

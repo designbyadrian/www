@@ -6,7 +6,7 @@ import { Link as GatsbyLink } from "gatsby"
 const StyledAnchor = styled.a`
   ${tw`relative`}
 
-  &::after {
+  &:not(.gatsby-resp-image-link)::after {
     content: "";
     ${tw`absolute left-0 right-0 border-b border-gray-300 dark:border-gray-600 transition-colors duration-200`}
     bottom: -0.25em;

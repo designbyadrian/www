@@ -31,7 +31,18 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-component"],
+        plugins: [
+          "gatsby-remark-component",
+          {
+            resolve: "gatsby-remark-images-contentful",
+            options: {
+              maxWidth: 1536,
+              backgroundColor: "var(--color-media-background)",
+              withWebp: true,
+              image_format: "png",
+            },
+          },
+        ],
       },
     },
     "gatsby-transformer-sharp",

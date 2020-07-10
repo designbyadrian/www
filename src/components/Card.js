@@ -45,11 +45,11 @@ const Description = tw.p`flex-grow mt-3 sm:text-base md:text-sm text-gray-600 da
 
 const Card = ({ createdAt, excerpt, slug, thumbnail, timestamp, title }) => (
   <Container to={`/${slug}`}>
-    {console.log("thumb", thumbnail?.fluid)}
     {thumbnail && (
       <Img
         fluid={thumbnail.fluid}
-        title={`${thumbnail.title} – ${thumbnail.description}`}
+        title={thumbnail.title}
+        alt={thumbnail.description}
       />
     )}
     <Content>

@@ -4,9 +4,9 @@ import tw, { styled } from "twin.macro"
 
 const Column = styled.div(({ width }) => [
   tw`w-full flex-grow p-1`,
-  width === "1/2" && tw`md:w-1/2`,
-  width === "1/3" && tw`md:w-1/3`,
-  width === "1/4" && tw`md:w-1/4`,
+  width === "1/2" && tw`md:max-w-1/2`,
+  width === "1/3" && tw`md:max-w-1/3`,
+  width === "1/4" && tw`md:max-w-1/4`,
 ])
 
 Column.defaultProps = {

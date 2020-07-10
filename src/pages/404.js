@@ -1,6 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import tw, { styled } from "twin.macro"
 
 import Layout from "components/Layout"

@@ -36,8 +36,40 @@ const globalStyles = css`
     ${tw`w-full font-display text-3xl leading-none text-gray-600 dark:text-gray-500`}
   }
 
+  h5 {
+    ${tw`mb-3 font-bold text-gray-900 dark:text-gray-300 leading-snug`}
+  }
+
   p {
     ${tw`my-6`}
+  }
+
+  blockquote {
+    ${tw`my-12 bg-gray-100 dark:bg-purple-700 rounded-lg`}
+
+    p {
+      ${tw`relative m-0 px-6 py-4 text-3xl italic dark:text-gray-400`}
+      z-index: 1;
+
+      &::before, &::after {
+        position: absolute;
+        font-size: 3em;
+        z-index: -1;
+        ${tw`text-gray-300 dark:text-purple-900`}
+      }
+
+      &::before {
+        content: '❝';
+        top: -0.5em;
+        left: -0.25em;
+      }
+
+      &::after {
+        content: '❞';
+        bottom: -0.5em;
+        right: -0.25em;
+      }
+    }
   }
 
   @font-face {
@@ -48,6 +80,16 @@ const globalStyles = css`
     src: url('${font.Dense_woff}') format("woff"), url('${
   font.Dense_woff2
 }') format("woff2");
+  }
+
+  :root {
+    --color-media-background: white;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-media-background: #2B203D;
+    }
   }
 `
 

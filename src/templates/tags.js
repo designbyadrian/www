@@ -7,11 +7,23 @@ import Stack from "components/Stack"
 import Wrapper from "components/Wrapper"
 
 const TagsPage = ({ pageContext }) => {
-  const { article: articles, slug, title } = pageContext,
-    posts = articles.map(article => ({
-      ...article,
-      excerpt: article.excerpt?.excerpt,
+  const { article, slug, title } = pageContext
+
+  let posts = []
+
+  if (article && Array.isArray(article)) {
+    posts = article.map(art => ({
+      ...art,
+      excerpt: art.excerpt?.excerpt,
     }))
+  } else if (article) {
+    posts = [
+      {
+        ...article,
+        excerpt: article.excerpt?.excerpt,
+      },
+    ]
+  }
 
   return (
     <Layout>
