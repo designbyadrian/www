@@ -1,7 +1,7 @@
 import React from "react"
 import tw from "twin.macro"
 
-const Container = tw.div`w-full sm:w-1/2 md:w-1/3 pr-2 mb-3`
+const Container = tw.div`pr-2 mb-3`
 
 const Title = tw.h5`mb-2 text-sm`
 

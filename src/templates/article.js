@@ -6,36 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import ArticleFooter from "components/ArticleFooter"
 import Anchor from "components/Link"
-import Block from "components/Block"
-import Column from "components/Column"
-import Experience from "components/Experience"
 import Feature from "components/Feature"
+import { Column, Row } from "components/Grid"
 import KeyFeature from "components/KeyFeature"
 import Layout from "components/Layout"
-import Row from "components/Row"
+import PageWrapper from "components/Wrapper"
 import SEO from "components/SEO"
 import Tag from "components/Tag"
-import PageWrapper from "components/Wrapper"
-
-// https://www.gatsbyjs.org/packages/gatsby-remark-images-contentful/
-
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    a: Anchor,
-    block: Block,
-    column: Column,
-    experience: Experience,
-    feature: Feature,
-    "font-awesome": FontAwesomeIcon,
-    "key-feature": KeyFeature,
-    row: Row,
-  },
-}).Compiler
+import YearsSince from "components/YearsSince"
 
 const wpm = 265
 
-const Wrapper = tw.div`
+const Wrapper = tw.article`
   w-full
   md:w-11/12
   lg:w-10/12
@@ -43,27 +25,35 @@ const Wrapper = tw.div`
   mx-auto
 `
 
-const Article = tw.article`
+const Page = tw.div`
   max-w-3xl
-  mt-6
+  my-10
   mx-auto
+  px-6
+  md:px-0
   text-lg
   md:text-xl
 `
 
-const Body = tw.section`
-  px-6
-  pt-10
-  md:px-0
-`
-
-const Header = styled.div`
-  margin-bottom: 2rem;
-`
+const Header = tw.div`mt-20`
 
 const Meta = tw.small`block w-full text-gray-500`
 
 const Tags = tw.div`relative z-10 w-full mt-3 mb-2`
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    a: Anchor,
+    column: Column,
+    "years-since": YearsSince,
+    feature: Feature,
+    "font-awesome": FontAwesomeIcon,
+    "key-feature": KeyFeature,
+    page: Page,
+    row: Row,
+  },
+}).Compiler
 
 const ArticlePage = ({ pageContext }) => {
   const {
@@ -92,23 +82,23 @@ const ArticlePage = ({ pageContext }) => {
         <Img fluid={hero.fluid} title={hero.title} alt={hero.description} />
       )}
       <Wrapper>
-        <Article>
-          <Body>
-            <Header>
-              <h1>{title}</h1>
-              <Meta>
-                {timestamp || createdAt} • {timeToRead} min read
-              </Meta>
-            </Header>
-            {renderAst(htmlAst)}
-            <ArticleFooter />
-            <Tags>
-              {tags.map(tag => (
-                <Tag {...tag} key={tag.slug} />
-              ))}
-            </Tags>
-          </Body>
-        </Article>
+        <Page>
+          <Header>
+            <h1>{title}</h1>
+            <Meta>
+              {timestamp || createdAt} • {timeToRead} min read
+            </Meta>
+          </Header>
+        </Page>
+        {renderAst(htmlAst)}
+        <Page>
+          <ArticleFooter />
+          <Tags>
+            {tags.map(tag => (
+              <Tag {...tag} key={tag.slug} />
+            ))}
+          </Tags>
+        </Page>
       </Wrapper>
     </Layout>
   )
