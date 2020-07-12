@@ -15,13 +15,14 @@ const Container = styled.header`
 `
 
 const Content = styled.div`
-  ${tw`flex flex-row items-center text-3xl md:text-4xl`}
+  ${tw`flex flex-row items-center text-3xl md:text-5xl`}
 `
 
 const Brand = tw(GatsbyLink)`flex flex-row items-center`
 
 const Title = styled.h1`
   ${tw`inline-block leading-none uppercase text-gray-600`}
+  font-size: 1em;
 
   span {
     ${tw`lowercase text-purple-700`}

@@ -5,7 +5,7 @@ const ScrollCheck = ({ onChange, scrollY }) => {
   const scrollRef = useRef()
 
   useEffect(() => {
-    if (scrollRef.current > scrollY) {
+    if (scrollY < -100 && scrollRef.current > scrollY) {
       onChange(true)
     } else if (scrollRef.current < scrollY) {
       onChange(false)

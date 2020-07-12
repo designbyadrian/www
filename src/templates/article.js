@@ -35,7 +35,7 @@ const Page = tw.div`
   md:text-xl
 `
 
-const Header = tw.div`mt-20`
+const Header = tw.div`mt-10 md:mt-20`
 
 const Meta = tw.small`block w-full text-gray-500`
 

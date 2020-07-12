@@ -30,7 +30,7 @@ const globalStyles = css`
   }
 
   h3 {
-    ${tw`w-full mt-10 mb-3 font-display text-5xl leading-none text-gray-600 dark:text-gray-500`}
+    ${tw`w-full mt-10 mb-3 font-display text-4xl md:text-5xl leading-none text-gray-600 dark:text-gray-500`}
   }
 
   h4 {

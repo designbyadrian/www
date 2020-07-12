@@ -74,14 +74,14 @@ const Container = styled.div`
   display: inline-block;
   width: 80px;
   height: 32px;
-  transform: translate3d(20px, -5px, 0) rotateX(-10deg);
+  transform: translate3d(10px, -5px, 0) rotateX(-10deg);
   transform-style: preserve-3d;
   perspective: 200;
 
   @media (min-width: 768px) {
-    width: 120px;
+    width: 110px;
     height: 50px;
-    transform: translate3d(20px, -10px, 0) rotateX(-10deg);
+    transform: translate3d(10px, -10px, 0) rotateX(-10deg);
   }
 `
 
