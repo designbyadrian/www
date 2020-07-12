@@ -72,19 +72,31 @@ const spin = keyframes`
 const Container = styled.div`
   position: relative;
   display: inline-block;
-  width: 120px;
-  height: 50px;
-  transform: translate3d(20px, -10px, 0);
+  width: 80px;
+  height: 32px;
+  transform: translate3d(20px, -5px, 0) rotateX(-10deg);
+  transform-style: preserve-3d;
   perspective: 200;
+
+  @media (min-width: 768px) {
+    width: 120px;
+    height: 50px;
+    transform: translate3d(20px, -10px, 0) rotateX(-10deg);
+  }
 `
 
 const Box = styled.div`
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 32px;
+  height: 32px;
   transform-style: preserve-3d;
 
   animation: ${spin} 10s linear infinite;
+
+  @media (min-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
 `
 
 const Side = styled.div`
@@ -92,28 +104,54 @@ const Side = styled.div`
   transform-origin: center bottom;
   z-index: 1;
 
-  width: 50px;
-  height: 50px;
+  width: 32px;
+  height: 32px;
 
   svg {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
   }
 
   &:nth-of-type(1) {
-    transform: translateZ(25px) rotateX(30deg);
+    transform: translateZ(16px) rotateX(30deg);
   }
 
   &:nth-of-type(2) {
-    transform: translateX(25px) rotateY(270deg) rotateX(-30deg);
+    transform: translateX(16px) rotateY(270deg) rotateX(-30deg);
   }
 
   &:nth-of-type(3) {
-    transform: translateZ(-25px) rotateX(-30deg);
+    transform: translateZ(-16px) rotateX(-30deg);
   }
 
   &:nth-of-type(4) {
-    transform: translateX(-25px) rotateY(-270deg) rotateX(-30deg);
+    transform: translateX(-16px) rotateY(-270deg) rotateX(-30deg);
+  }
+
+  @media (min-width: 768px) {
+    width: 50px;
+    height: 50px;
+
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    &:nth-of-type(1) {
+      transform: translateZ(25px) rotateX(30deg);
+    }
+
+    &:nth-of-type(2) {
+      transform: translateX(25px) rotateY(270deg) rotateX(-30deg);
+    }
+
+    &:nth-of-type(3) {
+      transform: translateZ(-25px) rotateX(-30deg);
+    }
+
+    &:nth-of-type(4) {
+      transform: translateX(-25px) rotateY(-270deg) rotateX(-30deg);
+    }
   }
 `
 
