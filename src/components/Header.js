@@ -8,7 +8,7 @@ import ScrollCheck from "components/ScrollCheck"
 import Wrapper from "components/Wrapper"
 
 const Container = styled.header`
-  ${tw`pt-3 pb-2 md:pt-5 md:pb-3 z-40 bg-white dark:bg-purple-800 dark:border-purple-900 transition-all duration-300 delay-300 transform`}
+  ${tw`pt-3 pb-2 md:pt-5 md:pb-3 z-40 bg-white dark:bg-purple-800 dark:border-purple-900 transition-all duration-300 transform z-40`}
 
   ${props => props.isSticky && tw`shadow-lg dark:border-b`};
   ${props => props.foldUp && tw`-translate-y-full`};

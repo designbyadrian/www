@@ -72,24 +72,30 @@ const spin = keyframes`
 const Container = styled.div`
   position: relative;
   display: inline-block;
-  width: 80px;
+  width: 72px;
   height: 32px;
-  transform: translate3d(10px, -5px, 0) rotateX(-10deg);
+  margin-top: -18px;
+  transform: rotateX(-20deg);
   transform-style: preserve-3d;
+  transform-origin: bottom center;
+  text-align: center;
   perspective: 200;
 
   @media (min-width: 768px) {
-    width: 110px;
+    width: 112px;
     height: 50px;
-    transform: translate3d(10px, -10px, 0) rotateX(-10deg);
+    margin-top: -34px;
+    transform: rotateX(-10deg);
   }
 `
 
 const Box = styled.div`
   position: relative;
+  display: inline-block;
   width: 32px;
   height: 32px;
   transform-style: preserve-3d;
+  transform-origin: bottom center;
 
   animation: ${spin} 10s linear infinite;
 
