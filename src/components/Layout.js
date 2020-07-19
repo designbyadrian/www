@@ -38,7 +38,7 @@ const globalStyles = css`
   }
 
   h5 {
-    ${tw`mb-3 font-bold text-gray-900 dark:text-gray-300 leading-snug`}
+    ${tw`mb-3 font-bold text-purple-600 dark:text-gray-300 leading-snug`}
   }
 
   p {
