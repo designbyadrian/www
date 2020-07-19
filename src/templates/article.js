@@ -1,11 +1,13 @@
 import React from "react"
-import rehypeReact from "rehype-react"
+import { MDXProvider } from "@mdx-js/react"
+import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
 import tw, { styled } from "twin.macro"
 import Img from "gatsby-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import countWords from "words-count"
 
 import ArticleFooter from "components/ArticleFooter"
-import Anchor from "components/Link"
+import Link from "components/Link"
 import Feature from "components/Feature"
 import { Column, Row } from "components/Grid"
 import KeyFeature from "components/KeyFeature"
@@ -41,46 +43,38 @@ const Meta = tw.small`block w-full text-gray-500`
 
 const Tags = tw.div`relative z-10 w-full mt-3 mb-2`
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    a: Anchor,
-    column: Column,
-    "years-since": YearsSince,
-    feature: Feature,
-    "font-awesome": FontAwesomeIcon,
-    "key-feature": KeyFeature,
-    page: Page,
-    row: Row,
-  },
-}).Compiler
+const shortcodes = {
+  Link,
+  Column,
+  YearsSince,
+  Feature,
+  FontAwesomeIcon,
+  KeyFeature,
+  Page,
+  Row,
+}
 
 const ArticlePage = ({ pageContext }) => {
   const {
       body: {
-        childMarkdownRemark: { htmlAst, wordCount },
+        childMdx: { body, rawBody },
       },
       createdAt,
       excerpt: { excerpt },
-      heroMargins = false,
       hero,
+      media,
       slug,
       tags,
       timestamp,
       title,
     } = pageContext,
-    timeToRead = Math.ceil(wordCount.words / wpm)
-  console.log("heroMargins?", heroMargins)
+    numWords = countWords(rawBody),
+    timeToRead = Math.ceil(numWords / wpm)
+
   return (
     <Layout>
       <SEO title={title} description={excerpt} image={hero.fixed} />
-      {heroMargins ? (
-        <PageWrapper>
-          <Img fluid={hero.fluid} title={hero.title} alt={hero.description} />
-        </PageWrapper>
-      ) : (
-        <Img fluid={hero.fluid} title={hero.title} alt={hero.description} />
-      )}
+      <Img fluid={hero.fluid} title={hero.title} alt={hero.description} />
       <Wrapper>
         <Page>
           <Header>
@@ -90,7 +84,9 @@ const ArticlePage = ({ pageContext }) => {
             </Meta>
           </Header>
         </Page>
-        {renderAst(htmlAst)}
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
         <Page>
           <ArticleFooter />
           <Tags>

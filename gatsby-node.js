@@ -9,17 +9,16 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulArticle {
         nodes {
           body {
-            childMarkdownRemark {
-              htmlAst
-              wordCount {
-                words
-              }
+            childMdx {
+              body
+              rawBody
             }
           }
           createdAt(formatString: "DD MMMM, YYYY")
           excerpt {
             excerpt
           }
+          title
           slug
           tags {
             slug
@@ -44,8 +43,6 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             description
           }
-          heroMargins
-          title
         }
       }
       allContentfulCategory {

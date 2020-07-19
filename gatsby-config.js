@@ -29,10 +29,9 @@ module.exports = {
     },
     "gatsby-plugin-emotion",
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-plugin-mdx",
       options: {
-        plugins: [
-          "gatsby-remark-component",
+        gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images-contentful",
             options: {
@@ -58,18 +57,12 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        host:
-          process.env.NODE_ENV === "development"
-            ? "preview.contentful.com"
-            : "cdn.contentful.com",
+        host: isDev ? "preview.contentful.com" : "cdn.contentful.com",
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: isDev,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // "gatsby-plugin-offline",
     {
       resolve: "gatsby-alias-imports",
       options: {
